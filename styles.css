@@ -1,0 +1,251 @@
+html {
+	font-size: 1rem;
+	background-color: #151515;
+	background-image: url("backgroundbw.jpg");
+	background-repeat: repeat;
+}
+body {
+	margin: 0;
+	padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+	background-image: url("background.jpg");
+	background-position: center;
+	background-repeat: repeat-y;
+	font-family: 'Roboto', sans-serif;
+	color: #676767;
+}
+p {
+	margin: 0.5rem;
+}
+
+a {
+	color: #FFF266;
+	text-decoration: none;
+}       
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #545454;  /* old IE */
+  background-color: #545454;  /* Modern Browsers */
+}
+.header {
+	display: flex;
+	height: 20px;
+	width: 1024px;
+	overflow: auto;
+	text-align:center; 
+	background-color: #242424;
+	color: white;
+	border-radius: 0.5rem 0.5rem 0 0 ;
+	margin: 0 auto;
+
+
+}    
+.footer {
+	display: block;
+	width: 1024px;
+	overflow: auto;
+	text-align:center; 
+	background-image: linear-gradient(to right, #045c99 , #e81466);
+	color: white;
+	border-radius: 0 0 0.5rem 0.5rem;
+	margin: 0 auto;
+}
+
+.about {
+	display: block;
+	overflow: auto;
+	width: 1024px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.90);
+	color: #3a3a3a;
+}
+.aboutcontent {
+	padding: 3rem;
+}
+.aboutcontent img {
+	float: left;
+	width: 370px;
+	margin-right: 2rem;
+}
+.player {
+	overflow: auto;
+	width: 1024px;
+	margin: 0 auto;
+	background-color: #3a3a3a;
+}
+.listapesama {
+	overflow: auto;
+	width: 154px;
+	height: 500px;
+	float: left;
+	font-size: 0.9rem;
+	text-align: center;
+}
+.listapesama a {
+	color: #d8d8d8;
+}
+
+.neparna, .parna, .choose {
+	margin: 0;
+	color: #dedede;
+	background-color: #3a3a3a;
+	padding: 0.5rem;
+}
+.parna {
+	background-color: #242424;
+}
+.choose {
+	font-size: 1rem;
+	background-color: #242424;
+	color: #FFF266;
+}
+.cdcover {
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+	float: left;
+}
+.description {
+	width: 370px;
+	color: white;
+	overflow: auto;
+	float: left;
+}
+#desc {
+	margin: 1rem;
+}
+#desc img {
+	height: 18px;
+}
+
+#myImage {
+	width: 100%;
+	height: 100%;
+}
+
+        /* Style the audio player container */
+        .audio-player {
+            width: 1004px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #242424;
+            color: #fff;
+            padding: 10px 10px 10px 10px;
+        }
+
+        /* Style the audio element */
+
+
+        /* Style the player controls */
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            background-color: #242424;
+        }
+
+        /* Style the play/pause button */
+        .audio-controls button {
+            background-color: #CB1D6C;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.1s;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+
+        .audio-controls button:hover {
+            background-color: #0C5997;
+        }
+
+        /* Style the time display and volume control */
+        .time-and-volume {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            justify-content: flex-start;
+            flex: 1; 
+        }
+
+        .time-and-volume input[type="range"] {
+        		-webkit-appearance: none;
+        		background: transparent;
+        		cursor: pointer;
+        		
+            flex: 1;
+            
+        }
+        
+        .time-and-volume1 {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            width: 120px;
+            margin-left: 20px;
+            
+        }
+
+        .time-and-volume1 input[type="range"] {
+                		-webkit-appearance: none;
+        		background: transparent;
+        		cursor: pointer;
+            width: 100%;
+        }
+        
+        /***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #545454;
+  height: 1px;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: #545454;
+  height: 1px;
+}
+
+
+/***** Thumb Styles *****/
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Override default look */
+   appearance: none;
+   margin-top: -12px; /* Centers thumb on the track */
+   background-color: #CB1D6C;
+    height: 25px;
+    width: 10px;   
+}
+
+/***** Thumb Styles *****/
+/***** Firefox *****/
+input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+    background-color: #CB1D6C;
+    height: 25px;
+    width: 10px;
+}
+
+/* For WebKit-based browsers like Chrome */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Background color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners for the scrollbar thumb */
+}
+
+/* For Firefox */
+/* You can adjust the width as needed for Firefox */
+.scroll-list {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #000000; /* Scrollbar thumb color and track color */
+}
+
+
+

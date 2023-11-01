@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goa.in.rs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') repeat;
+            font-family: Arial, sans-serif;
+        }
+
+        .centered-div {
+            width: 75%;
+            margin: 0 auto;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.93);
+        }
+
+        .header {
+            text-align: center;
+            color: #333;
+            padding: 10px 0;
+            width: 500px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 26px;
+        }
+        .header a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            text-align: center;
+            color: #e1e1e1;
+            padding: 10px 0;
+            font-size: 15px;
+            background-color: #045c99;
+            width: 98%;
+            margin: 10px;
+            border-radius: 10px;
+				background-image: linear-gradient(to right, #045c99 , #e81466);
+        }
+        .footer a {
+            color: #fba508;
+            text-decoration: none;
+        }
+        a {
+            color: #db1869;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="centered-div">
+        <div class="content">
+            <img src="logo.png" alt="Logo" width="400" height="420">
+            <p style="text-align: center; color: #333; font-size: 15px;">
+                Welcome to Goa.in.rs. Here you can <a href="about.html"><strong>listen and download</strong></a> my goa tracks.<br>
+                Turn up the volume, if you like goa trance, and enjoy your stay.<br>
+					 You can also read something <a href="about.html"><strong>about me.</strong></a><br>
+            </p>
+        </div>
+        <div class="footer">
+            <strong>Goa.in.rs</strong> - You can follow me on <strong><a href="https://mirens.bandcamp.com/">Bandcamp</a></strong> and <strong><a href="https://www.youtube.com/user/TheMirens/videos">Youtube</a></strong>
+        </div>
+    </div>
+</body>
+</html>
