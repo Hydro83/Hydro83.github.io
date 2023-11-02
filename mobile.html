@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="mobile.css">
+   <title>Goa.in.rs</title>
+   
+    <script>
+
+        // JavaScript function to change the image and audio
+
+
+function changeAudioAndImage(link) {
+    var audio = document.getElementById("myAudio");
+    var image = document.getElementById("myImage");
+
+    // Extract the last two characters from the link text
+    var linkText = link.innerHTML;
+    var lastTwoCharacters = linkText.slice(-2);
+
+    // Form the new audio source and image filename
+    var newAudioSource = "mp3/Mire-Goa" + lastTwoCharacters + ".mp3";
+    var newImageName = "mp3/" + lastTwoCharacters + ".jpg";
+
+    // Change the audio source
+    audio.src = newAudioSource;
+
+    // Change the image source
+    image.src = newImageName;
+
+    // Play the new audio
+    audio.load(); // Reload the audio source
+    audio.play(); // Start playing
+
+    // Update the play/pause button text to "Pause" (square icon)
+    var playPauseButton = document.getElementById('playPauseButton');
+    playPauseButton.textContent = '❚❚';
+}
+
+    
+  function changeDescription(targetId) {
+      // Hide all divs
+      document.getElementById('desc19').style.display = 'none';
+      document.getElementById('desc18').style.display = 'none';
+      document.getElementById('desc17').style.display = 'none';
+      document.getElementById('desc16').style.display = 'none';
+      document.getElementById('desc15').style.display = 'none';
+      document.getElementById('desc14').style.display = 'none';
+      document.getElementById('desc13').style.display = 'none';
+      document.getElementById('desc12').style.display = 'none';
+      document.getElementById('desc11').style.display = 'none';
+      document.getElementById('desc10').style.display = 'none';
+      document.getElementById('desc9').style.display = 'none';
+      document.getElementById('desc8').style.display = 'none';
+      document.getElementById('desc7').style.display = 'none';
+      document.getElementById('desc6').style.display = 'none';
+      document.getElementById('desc5').style.display = 'none';
+      document.getElementById('desc4').style.display = 'none';
+      document.getElementById('desc3').style.display = 'none';
+      document.getElementById('desc2').style.display = 'none';
+      document.getElementById('desc1').style.display = 'none';
+
+      // Display the selected div based on the targetId
+      document.getElementById(targetId).style.display = 'block';
+  }
+   
+    
+
+
+
+
+    
+  	 </script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+    <div class="player">
+
+      
+      
+    	<div id="menufullscreen">
+			<div class="showhide parna">Choose a track</div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc19');">Mire - Goa#19</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc18');">Mire - Goa#18</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc17');">Mire - Goa#17</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc16');">Mire - Goa#16</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc15');">Mire - Goa#15</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc14');">Mire - Goa#14</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc13');">Mire - Goa#13</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc12');">Mire - Goa#12</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc11');">Mire - Goa#11</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc10');">Mire - Goa#10</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc9');">Mire - Goa#09</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc8');">Mire - Goa#08</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc7');">Mire - Goa#07</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc6');">Mire - Goa#06</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc5');">Mire - Goa#05</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc4');">Mire - Goa#04</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc3');">Mire - Goa#03</a></div>
+			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc2');">Mire - Goa#02</a></div>
+			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc1');">Mire - Goa#01</a></div>
+    	</div>
+     
+
+    	   
+    		<img id="myImage" src="mp3/19.jpg">
+
+      <div class="audio-player">
+        <audio id="myAudio">
+            <source src="mp3/Mire-Goa19.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+            <button id="playPauseButton">▶</button>
+            <div class="time-and-volume">
+                <span id="elapsedTime">0:00</span>&nbsp;/&nbsp;<span id="totalTime" style="margin-right: 20px;">0:00</span>
+                <input id="seekBar" type="range" step="0.01">
+            </div>
+        </div>
+    	</div>
+      
+      
+    	<div class="description">
+    		<div id="desc">
+    		<!--Start of audio description -->
+    			<div id="desc19" style="display: block;"><h2>Mire - Goa#19</h2><i>Release date: Oct 15, 2023</i><br><br>I tried to go a little old school with this one. Made with Jeskola buzz (Daw), KickXp (Buzz machine), VK-1 (synth), Sim-reed (flute synth), Drums (samples), Classic delay (delay), Abstract chamber (reverb), GClip (clipper), ReaComp (compressor), Qrange (EQ), Xpander (Stereo width + EQ), LoudMax (limiter), Gatelab (trancegate)<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa19.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-19"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/ILB4c0vGRWM?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc18" style="display: none;"><h2>Mire - Goa#18</h2><i>Release date: May 14, 2023</i><br><br>This is second simplest track I made, I don't even know what synths I used. I don't remember making this song for some time, than I heard it after a month or so and I think this is not bad. I remember using a lot of LFX-1310 (multiFX) vst. Who is using LFX-1310 in 2023 :D <br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa18.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-18"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/7oR0hwzN4Ro?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc17" style="display: none;"><h2>Mire - Goa#17</h2><i>Release date: Aug 24, 2022</i><br><br>There are some mystical flute sounds in the mist. Made in Jeskola Buzz (Daw) with synt: ZamplerRX, DSK IndianDreamz, DSK Asian Dreamz. Effects: Unlimited (limiter), reaComp (compressor), qrange (EQ), some ladspa plugins compiled from linux to windows thanks to LMMS (Daw), Luftikus (EQ), mgTriggerGate (trancegate).<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa17.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-17"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/dxbWwmGBIjA?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc16" style="display: none;"><h2>Mire - Goa#16</h2><i>Release date: Aug 9, 2022</i><br><br>Gnomes found some magical mushrooms in the forest so it's time for a party. Finally I tried LMMS (Linux multimedia studio) on Linux. I tried to make everything with integrated sampler in LMMS and I did it! It was fun making this tune in lmms. I used only lmms internal effects and synths and samplers.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa16.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-16"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/EQ0exla2DEI?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc15" style="display: none;"><h2>Mire - Goa#15</h2><i>Release date: Nov 20, 2021</i><br><br>I tried excelent DSK Indian Dreamz for Tabla sound. Jeskola Buzz (Daw). Synths: Oatmeal, Synth1, NoiseMaker, DSK AsianDreamz, SQ8L, FireBird, Oomek aggressor (jeskola buzz machine for 303 sound). Effects: Qrange (Eq), Gcomp (compressor), Tal-Reverb, LoudMax (limiter), Luftikus (EQ), Tal-Dub (delay), Tal-Chorus, mgTriggerGate (trancegate), Kjaerhus classic phaser, classic auto filter, Giant Verb, reaComp (compressor).<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa15.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-15"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/8wwMnJv5mkY?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc14" style="display: none;"><h2>Mire - Goa#14</h2><i>Release date: Mar 27, 2021</i><br><br>Cyborg is singing in this one. Jeskola buzz (Daw). Synths: Surge, Charlatan, Kick XP (Buzz machine) for kick drum. Effects: mgTriggerGate (trancegate), Kjaerhus classic Delay, Phazor (phaser), Qrange (EQ), Supermassive (reverb), Gstereo, Gcomp, Reacomp, Plusdistortion, Kjaerhus classic phaser, Kjaerhus classic auto filter, Tal-Chorus, LFX-1310 (multyFX).<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa14.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-14"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/RZG33yHNyDo?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc13" style="display: none;"><h2>Mire - Goa#13</h2><i>Release date: Feb 3, 2021</i><br><br>Jeskola Buzz (Daw) used with synths: Zebralette, TripleCheese, Charlatan, P8, KickXP (buzz machine) used for kick. Effects: LoudMax (limiter), qrange (EQ), Tal-Filter, PlusDistortion, Supermassive (reverb), Tal-Dub (delay), Luftikus (EQ), Blockfish (compressor), Kjaerhus classic Phaser, Phazor (phaser) and Kjaerhus classic auto filter.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa13.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-13"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/eFHJmLjvVDw?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc12" style="display: none;"><h2>Mire - Goa#12</h2><i>Release date: May 17, 2020</i><br><br>This one is hard hitting. I played one little loop with something like sitar so the image is appropriate :D . Jeskola Buzz (Daw) used again with Synths: Surge, Firebird, Charlatan, DSK Choirz, DSK World Strings. Effects: GVst, Sonic Anomaly, Kjaerhus, lkjb, Voxengo, mgTriggerGate, TAL, ModernFlashVerb, jb PC-2, OTT, all free plugins again...<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa12.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-12"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/K4dmELrcjac?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc11" style="display: none;"><h2>Mire - Goa#11</h2><i>Release date: May 1, 2020</i><br><br>Electronic birds were singing this tunes. Again Surge for synths and kjaerhus stuff mainly, voxengo oldskool verb, voxengo stereo touch, plusdistortion, rea comp, lkjb qrange, Tal Chorus, TinyQ, rea delay, unlimited, OTT, mgTriggerGate, Jeroen Breebaart PC2... All free stuff... Jeskola machines: Matilde Tracker, aggresor (303). I sampled a lot of surge sounds and than used them in matilde tracker, results are ok.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa11.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-11"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/0BjJk45nsPE?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc10" style="display: none;"><h2>Mire - Goa#10</h2><i>Release date: Apr 18, 2020</i><br><br>Back to Jeskola Buzz (Daw). I used Short circuit 2 (sampler) and Surge for synths and kjaerhus stuff, epic verb, rea comp, lkjb qrange (EQ), rea delay, transpire (transient shaper), unlimited (limiter), OTT (compressor), mgTriggerGate (trancegate), GLfo (modulation), GClip (clipper), Jeroen Breebaart PC2... All free stuff, except one sound that comes from Tal-Mod synth.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa10.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-10"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/9FcLGgm34W8?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc9" style="display: none;"><h2>Mire - Goa#9</h2><i>Release date: Mar 15, 2020</i><br><br>I bought Behringer TD-3! So I decided to buy Tal-MOD (synth) and Podium (Daw) with Tone2 warmverb included. I couldn't record and edit TD-3 with Juskola buzz so I got Podium. It is a little different but nice daw. A lot of Tal-Mod (synth) in this track. <br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa09.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-9"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/DQalzQ-6ccs?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc8" style="display: none;"><h2>Mire - Goa#8</h2><i>Release date: Oct 13, 2019</i><br><br>On this one I wanted to try renoise (daw). Things took a wierd turn and this is a result. Me chanting some weird stuff on my android phone in a bathroom. I chopped and auto tuned some female singing sample and on my voice I forgot to put deesser plugin. Plugins used: Surge, NoiseMaker, GClip, MVerb, GComp, GSnap, TAL-Filter-2, Luftikus, LoudMax, DragonflyHallreverb,  and Renoise native plugins. <br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa08.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-8"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/yKX1MLee9jA?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc7" style="display: none;"><h2>Mire - Goa#7</h2><i>Release date: Aug 9, 2019</i><br><br>I wanted to try linux again but this time Ardour (Daw). It turned out ok. This version has a little stronger bass and kick than youtube version. Native linux plugins used: GeonKick, Calf studio, GVST, Distrho ports, Helm synth, Dragonfly Hall reverb, U-he Podolski, and Ardour native plugins (sidechain compressor, eq, filter).<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa07.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-7"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/fVylIteHRpU?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc6" style="display: none;"><h2>Mire - Goa#6</h2><i>Release date: Apr 30, 2019</i><br><br>Evil trolls are having a blast racing trough the woods on their bicikletas. This was made in Jeskola Buzz (daw) using a LOT of charlatan (synth), one instance of Oatmeal (synth) and I wanted to try creakbox (303 emulation). For effects I used mgTriggerGate (trancegate), Tal filter, Abstract Chamber (reverb), TinyQ (EQ), Roktion808 (distortion), Melda phaser, Warmverb (multyfx).<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa06.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-6"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/F1jFlCJ-BdM?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc5" style="display: none;"><h2>Mire - Goa#5</h2><i>Release date: Mar 3, 2019</i><br><br>Youtube version of this track is bad, I didn't rest my ears and I uploaded it with too much bass. This version is a little cleaner. Someone in the youtube comments said it reminded him of the rising sun, so I put appropriate image. This was my first track made on Linux in free tracktion (Daw). Mainly Tal-Noisemaker used and Calf plugins suite.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa05.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-5"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/jsQpWvhLc8w?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc4" style="display: none;"><h2>Mire - Goa#4</h2><i>Release date: Jan 4, 2019</i><br><br>Entering the gates of a RA's temple. Made in jeskola Buzz (Daw) again with a lot of synths used: Augur, Deducktion, KickXP (buzz generator), DSK AsianDreamz, DSK Ethereal Padz, T-Force Alpha plus 2, Aegis. Effects: melda free bundle, Gvst bundle, Tal-Chorus, Luftikus (EQ). Only 127 BPM. This is the slowest I will ever go. <br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa04.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-4"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/tMglEe0xH2c?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc3" style="display: none;"><h2>Mire - Goa#3</h2><i>Release date: Jan 2, 2019</i><br><br>Ah this one... I bought SynthMasterOne (synth), Xpand!2 (synth) and Hybrid (synth) + a lot of free Melda plugins. Plugins were sold for 1$ and I tried them. Everything was fine on first export of the track, but when I wanted to export it in a better quality SynthMasterOne on the next open forgot its parameters and I had to recreate one sound from scratch. I came close but this version and version on youtube are a little different.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa03.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-3"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/U4hAoTvpYKg?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc2" style="display: none;"><h2>Mire - Goa#2</h2><i>Release date: Apr 15, 2018</i><br><br>Second track... A little better than the first one but still a little rusty. It was made again in a Jeskola Buzz (Daw) using only free plugins. A lot of charlatan (synth), Phazor (phaser), TAL-U-NO-62 (synth), Ambience (reverb). I had a lot of problems exporting this one because reverb had some noise bursts and glitches so this was the best export :D<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa02.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-2"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/vlPmKbwXsmY?feature=shared"><img src="ytgray.svg"></a></div>
+    			<div id="desc1" style="display: none;"><h2>Mire - Goa#1</h2><i>Release date: Feb 12, 2018</i><br><br>My first track after a looooong pause. Using only free vst instruments and effects in Jeskola Buzz(Daw): Charlatan (synth), Sonigen modular (synth), U-No-62 (synth), Phazor (phaser), GClip (clipper), GComp2 (compressor), Luftikus (EQ). Setup was very basic but I had to warm up with something after such a long pause.<br><br><hr><br>To download this track right click on <a href="mp3/Mire-Goa01.mp3">this link</a> and choose Save link as...<br><br>You can also listen to this track on:<br><br><a href="https://mirens.bandcamp.com/track/goa-trance-1"><img src="bcgray.svg"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://youtu.be/aN0BJqd9COU?feature=shared"><img src="ytgray.svg"></a></div>
+    		<!--End of audio description -->
+    		</div>
+    	</div>
+    </div>
+    
+
+    	
+    
+    <div class="about">
+    	<div class="aboutcontent">
+
+	    	<img src="about.png" alt="Logo">
+	    	<h1>About me</h1>
+	    	Welcome to goa.in.rs. If you want to read a story about me, you are at the right place. It all started in 1999. when I started playing with FastTracker 2 on my i486 computer. Because of the NATO bombing of Serbia you couldn't do much with your free time, so why not make some loud music. It was a strange time and all of a sudden goa trance scene in Serbia was heating up. One night I accidentally found some strange music on local radio station "Radio 021" from Novi Sad - Serbia. I can not remember the name of the show but I remember it was hosted by DJ Gamzzy and DJ Denny. Listening to that show I heard my first goa trance.
+	04:30 01.11.2023		<br><br>My friend Bojan Jovanović and I decided to make goa trance album that will be heard on that radio show, and that was our mission! We created whole album using only DOS and FastTracker 2. Somehow we managed to contact DJ Gamzzy and bring our album to him. He told us it wasn't good enough for the radio show.
+			<br><br>After that we decided to try harder and we installed Windows 95, Propellerhead ReBirth RB-338 and Hammerhead Rhythm Station. Since my i486 wasn't good enough we had to use Bojan's stronger Pentium computer. We made something on his computer using windows and then we recorded everything from that session in wav format. Then I copied all that and went back home to mix it all on FastTracker 2. It was a mess but we did it! We gave our second "album" to DJ Gamzzy and he told us to prepare for the live show on Radio 021. I was 17 years old and the feeling was just unreal. We prepared for the show, Bojan and I knew what are we going to talk about and everything was good to go!
+			<br><br>Radio 021 was on one, of many, floors in the building called "Radnički univerzitet". Unfortunately few days before our music will be heard over the radio the whole building burned in fire. Radio station moved to the new location after some time with minimal resources, so our music was heard over the radio after all. After that DJ Gamzzy and I became good friends. I went to his place regularly to listen and learn about goa trance and making music. At some point he told me to call a guy named Meka (Goran Mekić) who also had goa trance project behind him, and I did. I started hanging out with Meka and learned a lot about making music and software called Jeskola Buzz. I fell in love with Buzz instantly. Connect anything to anything approach + tracker + low on resources... pure madness!
+			<br><br>Bojan went to university and the music thing started to slowly dissolve. I had to go alone with the project name "Psychotic fields". I didn't make anything notable until software named Propellerhead Reason showed up. It sparkled my creativity again and I made 3 tracks somewhere around year 2003. At that time there was a radio show called D-trance at Radio AS (Novi Sad - Serbia). D-Trance hosts were DJ Psychomental and again DJ Denny. Meka introduced me to Psychomental and I already knew Denny, so it wasn't so hard to make my new songs be heard on the radio again. I was special guest of the show and it felt great to be back behind the mic.
+			<br><br>After that show Meka and Psychomental invited me to join their project and three of us formed a project called Colliding Worlds. Basically Meka would put on his rollerblades and come to my house. You were never sure with Meka, he may be late 1 hour or 3 hours, but he came every time. I would then pick my cheap edirol midi keyboard, sit on my bike and together we went to Psychomental because he had the best computer and audio card. We used Cakewalk Sonar at that time. It was a lot of fun hanging out at Davor's (psychomental) house. I think we finished one whole album thanks to Davor but I am not sure. One thing is for certain, we've never released it. Meka, Davor and I were on air again on D-Trance radio show to present Colliding Worlds project. Project was also heard on one open air party in city of Zrenjanin if I remember correctly, it was my first live act and that was great experience for me. Later Psychomental released an album under his own project.
+			<br><br>I had less and less time for making music and some family problems which took a couple of years of my life. The change happened in 2012. when I started going to trance parties again with Davor where I met my future wife Ivana. I finished welding course and started working as a welder in a city of Subotica where I happily live with my wife. Since my life is back on track I have some free time that I am spending on making some goa trance! By default I went back to the old friend Jeskola Buzz and I made 5 tracks using Buzz. Since my old friend Meka, hacker and a musician, uses open source software for music production I decided to give Linux a try. I was impressed how it all worked out and I made 3 tracks using linux. You can listen to these tracks on this website.
+		</div>
+    </div>
+    <div class="footer">
+    	<p>&copy; 2023 goa.in.rs. All rights reserved.</p>
+    </div>  
+    
+    
+    <script>
+
+        // JavaScript for customizing the audio player
+        const audio = document.getElementById('myAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const seekBar = document.getElementById('seekBar');
+        const elapsedTime = document.getElementById('elapsedTime');
+        const totalTime = document.getElementById('totalTime');
+
+        playPauseButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = '❚❚';
+            } else {
+                audio.pause();
+                playPauseButton.textContent = '▶';
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            const duration = audio.duration;
+            elapsedTime.textContent = formatTime(currentTime);
+            totalTime.textContent = formatTime(duration);
+            seekBar.value = (currentTime / duration) * 100;
+        });
+
+        seekBar.addEventListener('input', () => {
+            const seekTime = (seekBar.value / 100) * audio.duration;
+            audio.currentTime = seekTime;
+        });
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+      const testing = document.getElementById('menufullscreen');
+      const showhideButton = document.querySelector('.showhide');
+
+      // Flag to keep track of the menu's state
+      let isExpanded = false;
+
+      // Function to toggle the menu's height
+      function toggleMenuHeight() {
+        if (isExpanded) {
+          menufullscreen.style.height = '50px';
+        } else {
+          menufullscreen.style.height = '100%';
+        }
+        isExpanded = !isExpanded;
+      }
+
+      // Add a click event listener to the button
+      showhideButton.addEventListener('click', function (event) {
+        event.target.setPointerCapture(event.pointerId);
+        toggleMenuHeight();
+      });
+    });
+
+
+    </script>
+    
+      
+</body>
+</html>
