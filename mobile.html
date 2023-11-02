@@ -81,18 +81,11 @@ function changeAudioAndImage(link) {
 
 
 
-
-
-
-
-
-    <div class="player">
-
-      
-      
-    	<div id="menufullscreen">
-			<div class="showhide parna">Choose a track</div>
-			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc19');">Mire - Goa#19</a></div>
+  <div class="accordion">
+    <input type="checkbox" id="toggle" name="toggle">
+    <label class="toggle-btn" for="toggle">Select a track</label>
+    <div id="playlistoff" class="accordion-content">
+    		<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc19');">Mire - Goa#19</a></div>
 			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc18');">Mire - Goa#18</a></div>
 			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc17');">Mire - Goa#17</a></div>
 			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc16');">Mire - Goa#16</a></div>
@@ -111,10 +104,16 @@ function changeAudioAndImage(link) {
 			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc3');">Mire - Goa#03</a></div>
 			<div class="parna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc2');">Mire - Goa#02</a></div>
 			<div class="neparna"><a href="#" onclick="changeAudioAndImage(this); changeDescription('desc1');">Mire - Goa#01</a></div>
-    	</div>
-     
+    
+    </div>
+  </div>
 
-    	   
+
+<div id="megadiv">
+
+
+    <div class="player">
+   	   
     		<img id="myImage" src="mp3/19.jpg">
 
       <div class="audio-player">
@@ -162,7 +161,7 @@ function changeAudioAndImage(link) {
 
     	
     
-    <div class="about">
+    <div id="about" class="about">
     	<div class="aboutcontent">
 
 	    	<img src="about.png" alt="Logo">
@@ -180,7 +179,9 @@ function changeAudioAndImage(link) {
     	<p>&copy; 2023 goa.in.rs. All rights reserved.</p>
     </div>  
     
-    
+
+</div>
+
     <script>
 
         // JavaScript for customizing the audio player
@@ -219,33 +220,39 @@ function changeAudioAndImage(link) {
             return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
         }
 
-
-document.addEventListener('DOMContentLoaded', function () {
-      const testing = document.getElementById('menufullscreen');
-      const showhideButton = document.querySelector('.showhide');
-
-      // Flag to keep track of the menu's state
-      let isExpanded = false;
-
-      // Function to toggle the menu's height
-      function toggleMenuHeight() {
-        if (isExpanded) {
-          menufullscreen.style.height = '50px';
-        } else {
-          menufullscreen.style.height = '100%';
-        }
-        isExpanded = !isExpanded;
-      }
-
-      // Add a click event listener to the button
-      showhideButton.addEventListener('click', function (event) {
-        event.target.setPointerCapture(event.pointerId);
-        toggleMenuHeight();
-      });
-    });
-
-
     </script>
+    
+
+
+
+
+
+<script>
+// Get references to the checkbox and div elements
+const checkbox = document.getElementById('toggle');
+const megadiv = document.getElementById('megadiv');
+const playlistoff = document.getElementById('playlistoff');
+
+// Function to toggle the div's visibility based on the checkbox state
+function toggleDivVisibility() {
+  if (checkbox.checked) {
+    megadiv.style.display = 'none'; // Hide the megadiv
+  } else {
+    megadiv.style.display = 'block'; // Show the megadiv
+  }
+}
+
+// Add a change event listener to the checkbox
+checkbox.addEventListener('change', toggleDivVisibility);
+
+// Add a click event listener to the playlistoff div
+playlistoff.addEventListener('click', function() {
+  megadiv.style.display = 'block'; // Show the megadiv
+  checkbox.checked = false; // Uncheck the checkbox
+});
+
+</script>
+
     
       
 </body>

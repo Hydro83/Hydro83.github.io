@@ -1,3 +1,48 @@
+.accordion {
+  position: relative;
+}
+.accordion .accordion-content {
+  display: none;
+}
+.accordion input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  display: none;
+}
+.accordion .toggle-btn {
+  color: #dedede;
+  cursor: pointer;
+  padding:0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background-color: #1a1a1a;
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  
+}
+.accordion input[type="checkbox"]:checked ~ .accordion-content {
+  display: block;
+}
+
+.accordion-content {
+	overflow: auto;
+	font-size: 15px;
+
+}
+.accordion-content a {
+	color: #dedede;
+	text-decoration: none;
+}
+
+#megadiv {
+	overflow: auto;
+	
+}
 html {
 	font-size: 15px;
 }
@@ -26,27 +71,6 @@ hr {
   color: #545454;  /* old IE */
   background-color: #545454;  /* Modern Browsers */
 }
-
-#menufullscreen
-{
-	position:fixed;
-	padding:0;
-	margin:0;
-	top:0;
-	left:0;
-	width: 100%;
-	height: 50px;
-	font-size: 1rem;
-	text-align: center;
-	overflow: auto;
-	background:rgba(0,0,0,0.8);
-
-}
-
-#menufullscreen a {
-	color: #d8d8d8;
-}
-
 
 .header {
   display: flex;
@@ -92,11 +116,13 @@ hr {
 }
 
 
-.neparna, .parna, .choose {
+.neparna, .parna {
 	margin: 0;
 	color: #dedede;
 	background-color: #3a3a3a;
 	padding: 16px 0 16px 0;
+	text-align: center;
+
 }
 .parna {
 	background-color: #242424;
@@ -126,7 +152,6 @@ hr {
 #myImage {
 	display:block;
 	width: 100%;
-	margin-top: 50px;
 }
 
            /* Style the audio player container */
