@@ -193,15 +193,13 @@ a {
 	
 }
 .listapesama {
-	position: absolute;
+	position: fixed;
 	overflow: auto;
 	width: 50%;
-	height: 100vh - 80px;
 	font-size: 15px;
 	text-align: center;
 	top: 40px;
 	bottom: 40px;
-	
 	left: -50%;
 }
 .neparna, .parna {
