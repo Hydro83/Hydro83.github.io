@@ -1,0 +1,264 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+html {
+	font-size: 15px;
+	background-color: #151515;
+	height: 100vh;
+	width: 100vw;
+
+}
+a {
+	color: #FFF266;
+	text-decoration: none;
+}
+#preloadDiv{
+	display: none;
+}
+#header {
+	width: 100vw;
+	height: 40px;
+	display: flex;
+	overflow: hidden;
+	justify-content: space_evenly;
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+}
+#left, #right {
+	width: 100%;
+	display: flex;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+	color: #e4e4e4;
+	background-color: #242424;
+	
+}
+#leftLight, #rightLight {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin-left: -82px;
+	border-radius: 3px;
+	background-color: #101010;
+}
+#rightLight {
+	
+	margin-left: -75px;
+}
+.selectedLight {
+	animation-name: lightAnimateIn;
+	animation-fill-mode: forwards;
+	animation-duration: 0.7s;
+}
+.unselectedLight {
+	animation-name: lightAnimateOut;
+	animation-fill-mode: forwards;
+	animation-duration: 0.7s;
+}
+@keyframes lightAnimateIn {
+	from {background-color:#101010;}
+	to {background-color:#cb1d6c;}
+}
+@keyframes lightAnimateOut {
+	from {background-color:#cb1d6c;}
+	to {background-color:#101010;}
+}
+#content {
+	position: absolute;
+	width: 100vw;
+	top: 40px;
+	bottom: 40px;
+	overflow-x: hidden;
+}
+
+#about {
+	position: absolute;
+	width: 100%;
+	height: 100vh - 80px;
+	top:40px;
+	bottom: 40px;
+	overflow: hidden;
+	left: 0px;
+	display: none;
+	
+}
+#about1 {
+	
+	width: 100%;
+	height: 100%;
+	background-color: #d7d7d7;
+	color: #242424;
+	font-size: 15px;
+	overflow: auto;
+	margin-left: 100%;
+}
+#about p {
+	padding: 20px;
+}
+#mire {
+	width: 75%;
+	margin: 10px auto 0 auto;
+	display: block;
+}
+.about1SlideIn {
+	animation-name: about1SlideIn;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+}
+.about1SlideOut {
+	animation-name: about1SlideOut;
+	animation-fill-mode: forwards;
+	animation-duration: 1s;
+}
+@keyframes about1SlideIn {
+	from {margin-left: 100%;}
+	to {margin-left: 0;}
+}
+@keyframes about1SlideOut {
+	from {margin-left: 0;}
+	to {margin-left: 100%;}
+}
+
+#myImage {
+	width: 100vw;
+	position: relative;
+}
+
+#desc {
+	display: block;
+	color: #d7d7d7;
+	position: relative;
+	padding: 20px;
+	width: 100vw - 40px;
+}
+#desc img {
+	height: 18px;
+	margin-right: 15px;
+}
+#audio-controls {
+	display: flex;
+	justify-content: flex-start;
+	width: 100vw;
+	height: 40px;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+}
+#play-pause-btn {
+	display: flex;
+	height: 40px;
+	width: 40px;
+	justify-content: center;
+	align-items: center;
+	color: #d7d7d7;
+	font-size: 18px;
+	border: none;
+	background-color: #1d90cb;
+	
+}
+
+
+#seek-bar {
+	display: flex;
+	
+	height: 40px;
+	background-color: #242424;
+	margin: 0;
+	flex-grow: 2;
+	position: relative;
+}
+
+#progress-bar {
+	height: 100%;
+	width: 0;
+	background-image: linear-gradient(to right, #1d90cb , #cb1d6c);
+	/* background-color: #1d90cb; */
+}
+
+
+#progress-bar p {
+	position: absolute;
+	margin: 0;
+	text-align: center;
+	left: 15px;
+	color: #e4e4e4;
+	padding: 12px 0 0 0;
+	font-size: 14px;
+	
+}
+.listapesama {
+	position: absolute;
+	overflow: auto;
+	width: 50%;
+	height: 100vh - 80px;
+	font-size: 15px;
+	text-align: center;
+	top: 40px;
+	bottom: 40px;
+	
+	left: -50%;
+}
+.neparna, .parna {
+	margin: 0;
+	color: #dedede;
+	padding: 8px;
+	background-color: #242424;
+	transition: 0.3s;
+}
+.parna {
+	background-color: #3a3a3a;
+	transition: 0.3s;
+}
+.selected {
+	background-color: #cb1d6c;
+	cursor: default;
+	background-image: url("play.svg");
+	background-position: left;
+	background-repeat: no-repeat;
+}
+.trackListIn {
+	animation-name: trackListIn;
+	animation-fill-mode: forwards;
+	animation-duration: 0.7s;
+}
+.trackListOut {
+	animation-name: trackListOut;
+	animation-fill-mode: forwards;
+	animation-duration: 0.7s;
+}
+
+@keyframes trackListIn {
+	from {left:-50%;}
+	to {left:0;}
+}
+@keyframes trackListOut {
+	from {left:0;}
+	to {left:-50%;}
+}
+
+.imageSlide {
+	animation-name: imageSlide;
+	animation-duration: 2s;
+}
+.descSlide {
+	animation-name: descSlide;
+	animation-duration: 2.4s;
+}
+
+/* The animation code */
+@keyframes imageSlide {
+	0%   {margin-left:0px;}
+	50%  {margin-left:100%;}
+	100% {margin-left:0px;}
+}
+@keyframes descSlide {
+	0%   {left:0px;}
+	50%  {left:100%;}
+	100% {left:0px;}
+}

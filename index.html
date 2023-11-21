@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Goa.in.rs</title>
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		
+		<script>
+			//If resolution is for mobile devices open file mobile.html instead of index.html
+			if (window.innerWidth < 1024) {
+				window.location.href = 'mobile.html';
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div id="preloadDiv"></div>
+		<div id="content">
+			<div id="centereddiv">
+				<div id="aboutMe">
+					<div id="textAbout">
+						<img id="mire" src="about.png">
+						<h1>About me</h1>
+						Welcome to goa.in.rs. If you want to read a story about me, you are at the right place. It all started in 1999. when I started playing with FastTracker 2 on my i486 computer. Because of the NATO bombing of Serbia you couldn't do much with your free time, so why not make some loud music. It was a strange time and all of a sudden goa trance scene in Serbia was heating up. One night I accidentally found some strange music on local radio station "Radio 021" from Novi Sad - Serbia. I can not remember the name of the show but I remember it was hosted by DJ Gamzzy and DJ Denny. Listening to that show I heard my first goa trance.
+						<br><br>
+						My friend Bojan Jovanović and I decided to make goa trance album that will be heard on that radio show, and that was our mission! We created whole album using only DOS and FastTracker 2. Somehow we managed to contact DJ Gamzzy and bring our album to him. He told us it wasn't good enough for the radio show.
+						<br><br>
+						After that we decided to try harder and we installed Windows 95, Propellerhead ReBirth RB-338 and Hammerhead Rhythm Station. Since my i486 wasn't good enough we had to use Bojan's stronger Pentium computer. We made something on his computer using windows and then we recorded everything from that session in wav format. Then I copied all that and went back home to mix it all on FastTracker 2. It was a mess but we did it! We gave our second "album" to DJ Gamzzy and he told us to prepare for the live show on Radio 021. I was 17 years old and the feeling was just unreal. We prepared for the show, Bojan and I knew what are we going to talk about and everything was good to go!
+						<br><br>
+						Radio 021 was on one, of many, floors in the building called "Radnički univerzitet". Unfortunately few days before our music will be heard over the radio the whole building burned in fire. Radio station moved to the new location after some time with minimal resources, so our music was heard over the radio after all. After that DJ Gamzzy and I became good friends. I went to his place regularly to listen and learn about goa trance and making music. At some point he told me to call a guy named Meka (Goran Mekić) who also had goa trance project behind him, and I did. I started hanging out with Meka and learned a lot about making music and software called Jeskola Buzz. I fell in love with Buzz instantly. Connect anything to anything approach + tracker + low on resources... pure madness!
+						<br><br>
+						Bojan went to university and the music thing started to slowly dissolve. I had to go alone with the project name "Psychotic fields". I didn't make anything notable until software named Propellerhead Reason showed up. It sparkled my creativity again and I made 3 tracks somewhere around year 2003. At that time there was a radio show called D-trance at Radio AS (Novi Sad - Serbia). D-Trance hosts were DJ Psychomental and again DJ Denny. Meka introduced me to Psychomental and I already knew Denny, so it wasn't so hard to make my new songs be heard on the radio again. I was special guest of the show and it felt great to be back behind the mic.
+						<br><br>
+						After that show Meka and Psychomental invited me to join their project and three of us formed a project called Colliding Worlds. Basically Meka would put on his rollerblades and come to my house. You were never sure with Meka, he may be late 1 hour or 3 hours, but he came every time. I would then pick my cheap edirol midi keyboard, sit on my bike and together we went to Psychomental because he had the best computer and audio card. We used Cakewalk Sonar at that time. It was a lot of fun hanging out at Davor's (psychomental) house. I think we finished one whole album thanks to Davor but I am not sure. One thing is for certain, we've never released it. Meka, Davor and I were on air again on D-Trance radio show to present Colliding Worlds project. Project was also heard on one open air party in city of Zrenjanin if I remember correctly, it was my first live act and that was great experience for me. Later Psychomental released an album under his own project.
+						<br><br>
+						I had less and less time for making music and some family problems which took a couple of years of my life. The change happened in 2012. when I started going to trance parties again with Davor where I met my future wife Ivana. I finished welding course and started working as a welder in a city of Subotica where I happily live with my wife. Since my life is back on track I have some free time that I am spending on making some goa trance! By default I went back to the old friend Jeskola Buzz and I made 5 tracks using Buzz. Since my old friend Meka, hacker and a musician, uses open source software for music production I decided to give Linux a try. I was impressed how it all worked out and I made 3 tracks using linux. You can listen to these tracks on this website.
+					</div>
+				</div>
+				<div id="header">
+					<div id="left" class="selectedMenu" onclick="menuClicked(1)"><div id="leftLight"></div><div id="leftLightOn"></div>MUSIC</div>
+					<div id="separator"></div>
+					<div id="right" class="" onclick="menuClicked(2)"><div id="rightLight"></div><div id="rightLightOn"></div>ABOUT</div>			
+				</div>
+				<div id="player1">
+					<div id="playlist" class="listapesama scroll-list">
+					</div>	
+					<div id="cdcover">
+						<img id="myImage" src="">
+					</div>
+					<div id="description">
+						<div id="desc">
+						</div>	
+					</div>
+					
+				</div>
+				<div id="audio-controls">
+					<audio id="myAudio" src="https://goa.in.rs/mp3/Mire-Goa01.mp3"></audio>
+					<button id="play-pause-btn" onclick="togglePlayPause()">▶</button>
+					<div id="seek-bar" onclick="seek(event)">
+						<div id="progress-bar"><p id="time-display">0:00</p></div>
+					</div>
+					<div id="volume-control">
+						<img id="volimg" src="vol.svg">
+						<div id="volume-bar" onclick="setVolume(event)">
+							<div id="volume-progress"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			//Get number of tracks from tracknumber.txt file, and store it to the global variable numOfTracks and do all this synchronously so the next line of code will wait to variable to get set
+			var xhr = new XMLHttpRequest();
+			var url = 'tracknumber.txt?' + new Date().getTime(); // Dont get the cached version of file, add time to the link to make it unique every time and return fresh version of txt file
+			xhr.open('GET', url, false);  // false = ynchronous request
+			xhr.send();
+			var numOfTracks = xhr.responseText;
+			//Default starting CD cover image, latest track number  	
+			document.getElementById("myImage").src = 'mp3/'+ numOfTracks +'.jpg';
+			//Default starting MP3 file, latest track number    	
+			document.getElementById("myAudio").src = 'mp3/Mire-Goa'+ numOfTracks +'.mp3';
+			//Default starting Description, latest track number
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'mp3/'+ numOfTracks +'.txt', false);
+			xhr.send();
+			document.getElementById('desc').innerHTML = xhr.responseText;
+			
+			// Populate a menu
+			for (let i = numOfTracks; i > 0; i--) {
+				if( i % 2 == 0 ){
+					var menuitem = '<div class="parna" onclick="startAnimation(this), playFile(this, ' + i + '), changeColor(this)">Mire - Goa#' + i + '</div>';
+					document.getElementById('playlist').innerHTML += menuitem;	
+					}else{
+					var menuitem = '<div class="neparna" onclick="startAnimation(this), playFile(this, ' + i + '), changeColor(this)">Mire - Goa#' + i + '</div>';
+					document.getElementById('playlist').innerHTML += menuitem;			
+				}
+			}
+			// Make first item in the menu selected
+			var parentDiv = document.getElementById("playlist");
+			var firstChild = parentDiv.firstElementChild;
+			firstChild.classList.add("selected");
+			
+			//Show pink light in the menu, when clicked on MUSIC light on ABOUT will be hidden and vice verse
+			// Also add animation for the aboutMe
+			function menuClicked(x){
+				var textAbout = document.getElementById('textAbout');
+				var left = document.getElementById('left');
+				var right = document.getElementById('right');
+				if(x==1 && left.classList.contains('selectedMenu')) {
+					//Do nothing if clicked on music second time
+					} else if (x==1) {
+					left.classList.add('selectedMenu');
+					right.classList.remove('selectedMenu');
+					setTimeout(function() {
+						document.getElementById("aboutMe").style.zIndex = "-1";
+					}, 1900);
+					document.getElementById("leftLightOn").style.visibility = "visible";
+					document.getElementById("rightLightOn").style.visibility = "hidden";
+					textAbout.classList.remove('animateout');
+					textAbout.classList.remove('animatein');
+					setTimeout(function() {
+						textAbout.classList.add('animateout');
+					}, 10);
+					} else if (x==2 && right.classList.contains('selectedMenu')) {
+					//Do nothing if clicked on about second time
+					} else if (x==2) {
+					right.classList.add('selectedMenu');
+					left.classList.remove('selectedMenu');
+					document.getElementById("rightLightOn").style.visibility = "visible";
+					document.getElementById("leftLightOn").style.visibility = "hidden";
+					
+					textAbout.classList.remove('animatein');
+					textAbout.classList.remove('animateout');
+					
+					setTimeout(function() {
+						document.getElementById("aboutMe").style.zIndex = "3";
+						textAbout.classList.add('animatein');
+						
+					}, 10);
+				}
+			}
+			
+			// Audio player options
+			function togglePlayPause() {
+				const audio = document.getElementById('myAudio');
+				const playPauseBtn = document.getElementById('play-pause-btn');
+				
+				if (audio.paused) {
+					audio.play();
+					playPauseBtn.textContent = '❚❚'; // Pause symbol
+					} else {
+					audio.pause();
+				playPauseBtn.textContent = '▶'; // Play symbol
+				}
+			}
+			
+			//When song reach the end set button to play state
+			document.getElementById('myAudio').addEventListener('ended', function () {
+				const playPauseBtn = document.getElementById('play-pause-btn');
+				playPauseBtn.textContent = '▶'; // Change to Play symbol when the song ends
+			});
+			
+			function seek(event) {
+				const audio = document.getElementById('myAudio');
+				const seekBar = document.getElementById('seek-bar');
+				const progressBar = document.getElementById('progress-bar');
+				
+				const mouseX = event.clientX - seekBar.getBoundingClientRect().left;
+				const percentage = (mouseX / seekBar.clientWidth) * 100;
+				
+				progressBar.style.width = percentage + '%';
+				const seekTime = (percentage / 100) * audio.duration;
+				audio.currentTime = seekTime;
+			}
+			
+			function setVolume(event) {
+				const audio = document.getElementById('myAudio');
+				const volumeBar = document.getElementById('volume-bar');
+				const volumeProgress = document.getElementById('volume-progress');
+				
+				const mouseX = event.clientX - volumeBar.getBoundingClientRect().left;
+				const percentage = (mouseX / volumeBar.clientWidth) * 100;
+				
+				volumeProgress.style.width = percentage + '%';
+				const volumeLevel = percentage / 100;
+				audio.volume = volumeLevel;
+			}
+			
+			// Update the seek bar, time display, and volume bar as the audio progresses
+			document.getElementById('myAudio').addEventListener('timeupdate', function () {
+				const audio = document.getElementById('myAudio');
+				const progressBar = document.getElementById('progress-bar');
+				const timeDisplay = document.getElementById('time-display');
+				
+				const percentage = (audio.currentTime / audio.duration) * 100;
+				progressBar.style.width = percentage + '%';
+				
+				// Update the time display
+				const currentMinutes = Math.floor(audio.currentTime / 60);
+				const currentSeconds = Math.floor(audio.currentTime % 60);
+				timeDisplay.textContent = currentMinutes + ':' + (currentSeconds < 10 ? '0' : '') + currentSeconds;
+			});
+			
+			document.getElementById('myAudio').addEventListener('volumechange', function () {
+				const audio = document.getElementById('myAudio');
+				const volumeProgress = document.getElementById('volume-progress');
+				
+				const percentage = audio.volume * 100;
+				volumeProgress.style.width = percentage + '%';
+			});
+			
+			function playFile(clickedDiv, x){
+				if (clickedDiv.classList.contains('selected')) {
+					}else {
+					//Change Image source
+					setTimeout(function() {
+						var imageElement = document.getElementById('myImage');
+						imageElement.src = 'mp3/'+x+'.jpg';
+					}, 1000);
+					// Change description source
+					setTimeout(function() {
+						var xhr = new XMLHttpRequest();
+						xhr.open('GET', 'mp3/'+x+'.txt', false);
+						xhr.send();
+						document.getElementById('desc').innerHTML = xhr.responseText;
+					}, 1000);
+					// Change audio source
+					const playPauseBtn = document.getElementById('play-pause-btn');
+					var audioElement = document.getElementById('myAudio');
+					audioElement.src = 'mp3/Mire-Goa'+x+'.mp3';
+					
+					// You may need to reload or play the audio for the change to take effect
+					audioElement.load(); // Reloads the audio
+					audioElement.play(); // Plays the audio automatically
+					playPauseBtn.textContent = '❚❚';// Reset button to play symbol
+				}
+			}
+			
+			//Change background color, in menu, of the clicked track
+			function changeColor(element) {
+				// Remove the "selected" class from all elements with class "parna"
+				var elements = document.getElementsByClassName("parna");
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].classList.remove("selected");
+				}
+				var elements = document.getElementsByClassName("neparna");
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].classList.remove("selected");
+				}
+				// Add the "selected" class only to the clicked element
+				element.classList.add("selected");
+			}
+			
+			//Preload all the images
+			for (let y = numOfTracks; y > 0; y--) {
+				var images = '<img src="mp3/' + y + '.jpg">';
+				document.getElementById('preloadDiv').innerHTML += images;	
+			}
+			//Preload all txt files
+			async function preloadTextFiles() {
+				var xhr = new XMLHttpRequest();
+				var url = 'tracknumber.txt?' + new Date().getTime(); // Dont get the cached version of file, add time to the link to make it unique every time and return fresh version of txt file
+				xhr.open('GET', url, false);  // false = ynchronous request
+				xhr.send();
+				var numOfTracks = xhr.responseText;
+				for (let i = 1; i <= numOfTracks; i++) {
+					let filePath = `mp3/${i}.txt`;
+					try {
+						let response = await fetch(filePath);
+						let textContent = await response.text();
+						// Store or process the content as needed
+						// console.log(`File ${i} content:`, textContent);
+						} catch (error) {
+						console.error(error);
+					}
+				}
+			}
+			window.onload = preloadTextFiles;
+			
+			//Animate images and text descriptions
+			function startAnimation(clickedDiv) {
+				if (clickedDiv.classList.contains('selected')) {
+					}else {
+					var cdcover = document.getElementById('cdcover');
+					var desc = document.getElementById('desc');
+					// Remove the 'animate' class to reset the animation
+					cdcover.classList.remove('animate');
+					desc.classList.remove('animate');
+					// Use a timeout to re-add the 'animate' class after a short delay
+					setTimeout(function() {
+						cdcover.classList.add('animate');
+						desc.classList.add('animate');
+					}, 10);
+				}
+			}
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>	

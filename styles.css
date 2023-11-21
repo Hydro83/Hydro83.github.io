@@ -1,0 +1,340 @@
+html {
+	font-size: 16px;
+	background-color: #151515;
+	background-image: url("backgroundbw.jpg");
+	background-repeat: repeat;
+}
+
+body {
+	margin: 0;
+	background-image: url("background.jpg");
+	background-position: center;
+	background-repeat: repeat-y;
+	font-family: 'Roboto', sans-serif;
+}
+a {
+	color: #FFF266;
+	text-decoration: none;
+}
+#preloadDiv{
+	display: none;
+}
+#content {
+	height: 100vh;
+	overflow: hidden;
+	width: 1200px;
+	margin: auto;
+	display: flex;
+	justify-content: center; 
+	align-items: center;
+	background-image: url("shadow.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#centereddiv {
+	width: 1024px;
+	overflow: auto;
+}
+
+#aboutMe {
+	width: 870px;
+	height: 500px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: absolute;
+	margin: 40px 0 0 154px;
+	z-index: -1;
+}
+#textAbout {
+	width: auto;
+	height: auto;
+	overflow: hidden;
+	padding: 20px 40px;
+	background-color: #d7d7d7;
+	color: #242424;
+	position: relative;
+	font-size: 16px;
+}
+#textAbout.animatein {
+	animation-name: aboutslidein;
+	animation-duration: 2s;
+}
+#textAbout.animateout {
+	animation-name: aboutslideout;
+	animation-duration: 2s;
+}
+
+/* The animation code */
+@keyframes aboutslidein {
+	0%   {left:880px;}
+	100% {left:0px;}
+}
+@keyframes aboutslideout {
+	0%   {left:0px;}
+	100% {left:880px;}
+}
+
+#mire {
+	float: left;
+	margin-right: 20px;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+#separator {
+	width: 100%;
+	height: 20px;
+	background-color: #242424;
+	display: block;
+	
+}
+
+#left, #right {
+	display: flex;
+	height: 40px;
+	width: 212px;
+	align-items: center;
+	justify-content: center;
+	color: #e4e4e4;
+	border-radius: 20px 20px 0 0;
+	cursor: pointer;
+	background-color: #242424;
+	
+}
+#leftLight, #rightLight {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin-left: -82px;
+	border-radius: 3px;
+}
+#leftLight {
+	background-color: #101010;
+	transition: 0.7s;
+	
+}
+#left:hover > #leftLight {
+	background-color: #cb1d6c;
+}
+#rightLight {
+	background-color: #101010;
+	transition: 0.7s;
+}
+#right:hover > #rightLight {
+	background-color: #cb1d6c;
+}
+#leftLightOn, #rightLightOn {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	margin-left: -82px;
+	border-radius: 3px;
+	background-color: #cb1d6c;
+}
+
+#rightLightOn {
+	visibility: hidden;
+}
+
+#player1 {
+	width: 1024px;
+	height: 500px;
+	align-items: center;
+	background-color: #3a3a3a;
+	overflow: hidden;
+}
+
+.listapesama {
+	overflow: auto;
+	width: 154px;
+	height: 500px;
+	float: left;
+	font-size: 0.9rem;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+.neparna, .parna {
+	margin: 0;
+	color: #dedede;
+	padding: 0.5rem;
+	cursor: pointer;
+	background-color: #242424;
+	transition: 0.3s;
+}
+.parna {
+	background-color: #3a3a3a;
+	transition: 0.3s;
+}
+.parna:hover, .neparna:hover {
+	background-color: #1d90cb;
+}
+
+.selected {
+	background-color: #cb1d6c;
+	cursor: default;
+	background-image: url("play.svg");
+	background-position: left;
+	background-repeat: no-repeat;
+}
+.selected:hover {
+	background-color: #cb1d6c;
+}
+
+#cdcover {
+	width: 500px;
+	height: 500px;
+	overflow: hidden;
+	float: left;
+	position: relative;
+}
+#cdcover.animate {
+	animation-name: imageslide;
+	animation-duration: 2s;
+}
+
+/* The animation code */
+@keyframes imageslide {
+	0%   {left:0px;}
+	50%  {left:-550px;}
+	100% {left:0px;}
+}
+
+#myImage {
+	width: 100%;
+	height: 100%;
+}
+#description {
+	width: 370px;
+	height: 100%;
+	color: #d7d7d7;
+	overflow: hidden;
+	float: left;
+	display: flex;
+	align-items: center;
+}
+#desc {
+	margin: 20px;
+	position: relative;
+	overflow: hidden;
+}
+#desc.animate {
+	animation-name: textslide;
+	animation-duration: 2.4s;
+}
+/* The animation code */
+@keyframes textslide {
+	0%   {left:0px;}
+	50%  {left:+550px;}
+	100% {left:0px;}
+}
+h1 {
+	margin-top: 0;
+}
+#desc img {
+	height: 18px;
+	margin-right: 15px;
+}
+
+
+#desc img:hover {
+	filter: sepia();
+}
+
+
+#audio-controls {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 1024px;
+	height: 40px;
+	overflow: hidden;
+}
+#play-pause-btn, #volume-control {
+	display: flex;
+	height: 40px;
+	width: 146px;
+	justify-content: center;
+	align-items: center;
+	color: #d7d7d7;
+	font-size: 18px;
+	border: none;
+	border-radius: 0 0 20px 20px;
+	cursor: pointer;
+	background-color: #1d90cb;
+	transition: 0.7s;
+}
+
+#volume-control {
+	background-color: #242424;
+	cursor: default;
+}
+#seek-bar {
+	width: 732px;
+	height: 20px;
+	background-color: #242424;
+	margin: 0;
+	position: relative;
+	cursor: pointer;
+}
+
+#progress-bar {
+	height: 100%;
+	width: 0;
+	background-image: linear-gradient(to right, #1d90cb , #cb1d6c);
+	/* background-color: #1d90cb; */
+}
+#play-pause-btn:hover {
+	background-color: #1d7aab;
+}
+#volume-bar {
+	width: 70px;
+	height: 4px;
+	background-color: #3a3a3a;
+	position: relative;
+	cursor: pointer;
+}
+
+#volume-progress {
+	width: 100%;
+	height: 100%;
+	background-color: #d7d7d7;
+}
+#progress-bar p {
+	width: 732px;
+	text-align: center;
+	color: #e4e4e4;
+	padding: 2px 0 0 0;
+	margin: 0;
+	font-size: 14px;
+	
+}
+#volume-control img {
+	width: 12px;
+	margin-right: 10px;
+}
+
+/* Works on Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #888888 #101010;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+	background: #101010;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: #888888;
+	border-radius: 0px;
+	border: 0px solid orange;
+}
