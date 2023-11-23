@@ -17,15 +17,27 @@ a {
 #preloadDiv{
 	display: none;
 }
-#header {
+#flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
 	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background-color: red;
+
+	
+}
+#header {
+	width: 100%;
 	height: 40px;
 	display: flex;
 	overflow: hidden;
 	justify-content: space_evenly;
-	position: absolute;
-	left: 0;
-	top: 0;
+	position: fixed;
+	top:0;
+	left:0;
 	
 }
 #left, #right {
@@ -69,15 +81,15 @@ a {
 	to {background-color:#101010;}
 }
 #content {
-	position: absolute;
-	width: 100vw;
+	position: fixed;
+	width: 100%;
 	top: 40px;
 	bottom: 40px;
 	overflow-x: hidden;
 }
 
 #about {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100vh - 80px;
 	top:40px;
@@ -89,13 +101,16 @@ a {
 }
 #about1 {
 	
+	position: fixed;
 	width: 100%;
-	height: 100%;
 	background-color: #d7d7d7;
 	color: #242424;
 	font-size: 15px;
 	overflow: auto;
-	margin-left: 100%;
+	/* margin-left: 100%; */
+	top: 40px;
+	bottom: 40px;
+	left: 100%;
 }
 #about p {
 	padding: 20px;
@@ -116,12 +131,12 @@ a {
 	animation-duration: 1s;
 }
 @keyframes about1SlideIn {
-	from {margin-left: 100%;}
-	to {margin-left: 0;}
+	from {left: 100%;}
+	to {left: 0;}
 }
 @keyframes about1SlideOut {
-	from {margin-left: 0;}
-	to {margin-left: 100%;}
+	from {left: 0;}
+	to {left: 100%;}
 }
 
 #myImage {
@@ -143,12 +158,13 @@ a {
 #audio-controls {
 	display: flex;
 	justify-content: flex-start;
-	width: 100vw;
+	width: 100%;
 	height: 40px;
 	overflow: hidden;
-	position: absolute;
-	left: 0;
-	bottom: 0px;
+	position: fixed;
+	bottom: 0;
+	left:0;
+
 }
 #play-pause-btn {
 	display: flex;
