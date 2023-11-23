@@ -111,6 +111,8 @@ a {
 	top: 40px;
 	bottom: 40px;
 	left: 100%;
+	will-change: transform, opacity;
+	transform: translateZ(0);
 }
 #about p {
 	padding: 20px;
@@ -142,6 +144,8 @@ a {
 #myImage {
 	width: 100vw;
 	position: relative;
+	will-change: transform, opacity;
+	transform: translateZ(0);
 }
 
 #desc {
@@ -150,6 +154,8 @@ a {
 	position: relative;
 	padding: 20px;
 	width: 100vw - 40px;
+	will-change: transform, opacity;
+	transform: translateZ(0);
 }
 #desc img {
 	height: 18px;
@@ -275,4 +281,8 @@ a {
 	0%   {left:0px;}
 	50%  {left:100%;}
 	100% {left:0px;}
+}
+#playlist {
+	will-change: transform, opacity;
+	transform: translateZ(0);
 }
