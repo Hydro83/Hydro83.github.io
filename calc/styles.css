@@ -1,0 +1,57 @@
+html {
+	font-size: 14px;
+	background-color: #151515;
+	background-image: url("backgroundbw.jpg");
+	background-repeat: repeat;
+}
+
+body {
+	margin: 0;
+	background-image: url("background.jpg");
+	background-position: center;
+	background-repeat: repeat-y;
+	font-family: 'Roboto', sans-serif;
+    color: #e4e4e4;
+}
+a {
+	color: #FFF266;
+	text-decoration: none;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 359px;
+    
+    margin-top: 10px;
+}
+.label {
+   
+}
+.inputtext {
+    width: 50px;
+    color: #e4e4e4;
+    border: none;
+    font-size: 14px;
+    height: 25px;
+    
+    background-color: black;
+    text-align: center;
+    
+}
+#sampleRate {
+    width: 80px;
+}
+#generate {
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    color: #e4e4e4;
+    border: none;
+    font-size: 14px;
+    height: 25px;
+    margin-top: 10px;
+}
+#generate :hover {
+    cursor: pointer;
+}

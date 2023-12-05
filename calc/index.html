@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Goa.in.rs / Calculator</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<br>
+	<div class="container">
+		<div class="label">BPM:</div>
+		<input class="inputtext" type="text" id="BPM" value="120" maxlength="3">
+		<div class="label">SR:</div>
+		<select class="inputtext" id="sampleRate">
+			<option value="44.1" selected>44.1 kHz</option>
+			<option value="48">48 kHz</option>
+			<option value="96">96 kHz</option>
+			<option value="192">192 kHz</option>
+		</select>
+		<div class="label">NOTE:</div>
+		<select class="inputtext" id="note">
+			<option value="C" selected>C</option>
+			<option value="Csharp">C#</option>
+			<option value="D">D</option>
+			<option value="Dsharp">D#</option>
+			<option value="E">E</option>
+			<option value="F">F</option>
+			<option value="Fsharp">F#</option>
+			<option value="G">G</option>
+			<option value="Gsharp">G#</option>
+			<option value="A">A</option>
+			<option value="Asharp">A#</option>
+			<option value="B">B</option>
+		</select>
+	</div>
+	<br>
+
+	
+
+	<button id="generate" onclick="generate()">GENERATE</button>
+
+	<div id="bpm">BPM</div>
+	<script>
+
+		// Use an object with property names as strings and values as arrays
+		const notes = {
+			"C": [16.35, 32.7, 65.41, 130.8, 261.6, 523.3, 1047, 2093, 4186],
+			"Csharp": [17.32, 34.65, 69.3, 138.6, 277.2, 554.4, 1109, 2217, 4435],
+			"D": [18.35, 36.71, 73.42, 146.8, 293.7, 587.3, 1175, 2349, 4699],
+			"Dsharp": [19.45, 38.89, 77.78, 155.6, 311.1, 622.3, 1245, 2489, 4978],
+			"E": [20.6, 41.2, 82.41, 164.8, 329.6, 659.3, 1319, 2637, 5274],
+			"F": [21.83, 43.65, 87.31, 174.6, 349.2, 698.5, 1397, 2794, 5588],
+			"Fsharp": [23.12, 46.25, 92.50, 185, 370, 740, 1480, 2960, 5920],
+			"G": [24.50, 49, 98, 196, 392, 784, 1568, 3136, 6272],
+			"Gsharp": [25.96, 51.91, 103.8, 207.7, 415.3, 830.6, 1661, 3322, 6645],
+			"A": [27.5, 55, 110, 220, 440, 880, 1760, 3520, 7040],
+			"Asharp": [29.14, 58.27, 116.5, 233.1, 466.2, 932.3, 1865, 3729, 7459],
+			"B": [30.87, 61.74, 123.5, 246.9, 493.9, 987.8, 1976, 3951, 7902]
+		};
+
+		var sr = 44.1;
+		var note = "C";
+
+		function generate() {
+			var sr = document.getElementById('sampleRate').value;
+			var bpm = document.getElementById('BPM').value;
+			var note = document.getElementById('note').value;
+
+			if (bpm < 16) {
+				bpm = 16;
+				document.getElementById('BPM').value = 16;
+			}
+			if (bpm > 500) {
+				bpm = 500;
+				document.getElementById('BPM').value = 500;
+			}
+            if (isNaN(bpm)) {
+				document.getElementById('BPM').value = 120;
+                bpm = 120;
+            } 
+
+
+			console.log('BPM:', bpm);
+			console.log('SR:', sr);
+
+			for (var i = 0; i < 9; i++) {
+				console.log(notes[note][i]);
+			}
+
+			document.getElementById("bpm").innerHTML = "One bar contains 4 beats<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Milliseconds<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 2 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((60000 / bpm) * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((60000 / bpm) / 2 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 4 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 1000) / 1000) + " ms<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) / 2) * 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 4) * 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 4 * 1.5 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 1.5 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 1.5 * 1000) / 1000) + " ms<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) * 2) / 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((60000 / bpm) / 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 6 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000) + " ms<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Samples<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 2 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 2 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 4 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 1000) / 1000) * sr) + " samples<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((((60000 / bpm) / 2) * 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((((60000 / bpm) / 4) * 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 4 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((((60000 / bpm) * 2) / 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 6 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Herz<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 2) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / ((60000 / bpm)) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / ((60000 / bpm) / 2) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 4) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16) * 1000) / 1000) + " Hz<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / (((60000 / bpm) / 2) * 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / (((60000 / bpm) / 4) * 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 4 * 1.5) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8 * 1.5) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16 * 1.5) * 1000) / 1000) + " Hz<br>"
+
+			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
+			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 2 * 2 / 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / (((60000 / bpm) * 2) / 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / ((60000 / bpm) / 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 6) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8 * 2 / 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16 * 2 / 3) * 1000) / 1000) + " Hz<br>"
+
+		}
+
+
+
+
+		//var ms = parseFloat((1 / A[4] * 1000).toFixed(3)); 
+
+		//console.log("Single cycle note in ms: " + ms)
+		//console.log("Single cycle note in samples: " + Math.round(ms * sr))
+
+
+
+
+		window.onload = function () {
+			generate();
+		};
+
+	</script>
+</body>
+
+</html>
