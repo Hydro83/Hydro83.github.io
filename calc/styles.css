@@ -1,6 +1,6 @@
 html {
 	font-size: 14px;
-	background-color: #151515;
+	background-color: #303030;
 	background-image: url("backgroundbw.jpg");
 	background-repeat: repeat;
 }
@@ -21,8 +21,8 @@ a {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 359px;
-    
+    max-width: 500px;
+    margin: auto;
     margin-top: 10px;
 }
 .label {
@@ -43,15 +43,67 @@ a {
     width: 80px;
 }
 #generate {
-    width: 100%;
+    max-width: 500px;
     background-color: black;
     text-align: center;
     color: #e4e4e4;
-    border: none;
     font-size: 14px;
     height: 25px;
+    padding-top: 6px;
+    margin: auto;
     margin-top: 10px;
+    margin-bottom: 13px;
 }
-#generate :hover {
+#generate:hover {
     cursor: pointer;
+    background-color: #cb1d6c;
+}
+.header, .values {
+    display: flex;
+    max-width: 500px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: #0e4763;
+}
+.header > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 31px;
+    cursor: pointer;
+}
+.selected {
+    background-color: #1d90cb;
+    width: 100%;
+}
+.selected1 {
+    background-color: #cb1d6c;
+    width: 100%;
+}
+.deselected {
+    width: 100%;
+}
+.hidden {
+    display: none;
+}
+.values {
+    max-width: 498px;
+    border-style: solid;
+    border-color: #1d90cb;
+    border-width: 1px;
+}
+.values1 {
+    max-width: 498px;
+    border-style: solid;
+    border-color: #cb1d6c;
+    border-width: 1px;
+}
+.value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #151515;
+    height: 31px;
+    width: 100%;
 }

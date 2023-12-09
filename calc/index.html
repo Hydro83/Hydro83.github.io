@@ -9,55 +9,439 @@
 </head>
 
 <body>
-	<br>
+
 	<div class="container">
-		<div class="label">BPM:</div>
-		<input class="inputtext" type="text" id="BPM" value="120" maxlength="3">
-		<div class="label">SR:</div>
-		<select class="inputtext" id="sampleRate">
-			<option value="44.1" selected>44.1 kHz</option>
-			<option value="48">48 kHz</option>
-			<option value="96">96 kHz</option>
-			<option value="192">192 kHz</option>
-		</select>
-		<div class="label">NOTE:</div>
-		<select class="inputtext" id="note">
-			<option value="C" selected>C</option>
-			<option value="Csharp">C#</option>
-			<option value="D">D</option>
-			<option value="Dsharp">D#</option>
-			<option value="E">E</option>
-			<option value="F">F</option>
-			<option value="Fsharp">F#</option>
-			<option value="G">G</option>
-			<option value="Gsharp">G#</option>
-			<option value="A">A</option>
-			<option value="Asharp">A#</option>
-			<option value="B">B</option>
-		</select>
+		<div class="label">BPM: 
+			<input class="inputtext" type="text" id="BPM" value="120" maxlength="3">
+		</div>
+		<div class="label">SR: 
+			<select class="inputtext" id="sampleRate">
+				<option value="44.1" selected>44.1 kHz</option>
+				<option value="48">48 kHz</option>
+				<option value="96">96 kHz</option>
+				<option value="192">192 kHz</option>
+			</select>
+		</div>
+		<div class="label">NOTE: 
+			<select class="inputtext" id="note">
+				<option value="C" selected>C</option>
+				<option value="C#">C#</option>
+				<option value="D">D</option>
+				<option value="D#">D#</option>
+				<option value="E">E</option>
+				<option value="F">F</option>
+				<option value="F#">F#</option>
+				<option value="G">G</option>
+				<option value="G#">G#</option>
+				<option value="A">A</option>
+				<option value="A#">A#</option>
+				<option value="B">B</option>
+			</select>
+		</div>
+	</div>
+	<div id="generate" onclick="generate()">CALCULATE</div>
+
+	<!-- 1/2 -->
+	<div class="header">
+		<div id="12" class="deselected selected" onclick="menuClicked(11)">1/2</div>
+		<div id="12dot" class="deselected" onclick="menuClicked(12)">1/2 dot</div>
+		<div id="12tri" class="deselected" onclick="menuClicked(13)">1/2 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole12val" class="values">
+			<div id="whole12" class="value"></div>
+			<div id="whole12hz" class="value"></div>
+			<div id="whole12s" class="value"></div>
+	</div>
+	<div id="dot12val" class="values hidden">
+		<div id="dot12" class="value"></div>
+		<div id="dot12hz" class="value"></div>
+		<div id="dot12s" class="value"></div>
+	</div>
+	<div id="tri12val" class="values hidden">
+		<div id="tri12" class="value"></div>
+		<div id="tri12hz" class="value"></div>
+		<div id="tri12s" class="value"></div>
+	</div>	
+	
+	<!-- 1/4 -->
+	<br>
+	<div class="header">
+		<div id="14" class="deselected selected" onclick="menuClicked(21)">1/4</div>
+		<div id="14dot" class="deselected" onclick="menuClicked(22)">1/4 dot</div>
+		<div id="14tri" class="deselected" onclick="menuClicked(23)">1/4 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole14val" class="values">
+			<div id="whole14" class="value"></div>
+			<div id="whole14hz" class="value"></div>
+			<div id="whole14s" class="value"></div>
+	</div>
+	<div id="dot14val" class="values hidden">
+		<div id="dot14" class="value"></div>
+		<div id="dot14hz" class="value"></div>
+		<div id="dot14s" class="value"></div>
+	</div>
+	<div id="tri14val" class="values hidden">
+		<div id="tri14" class="value"></div>
+		<div id="tri14hz" class="value"></div>
+		<div id="tri14s" class="value"></div>
+	</div>	
+
+	<!-- 1/8 -->
+	<br>
+	<div class="header">
+		<div id="18" class="deselected selected" onclick="menuClicked(31)">1/8</div>
+		<div id="18dot" class="deselected" onclick="menuClicked(32)">1/8 dot</div>
+		<div id="18tri" class="deselected" onclick="menuClicked(33)">1/8 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole18val" class="values">
+			<div id="whole18" class="value"></div>
+			<div id="whole18hz" class="value"></div>
+			<div id="whole18s" class="value"></div>
+	</div>
+	<div id="dot18val" class="values hidden">
+		<div id="dot18" class="value"></div>
+		<div id="dot18hz" class="value"></div>
+		<div id="dot18s" class="value"></div>
+	</div>
+	<div id="tri18val" class="values hidden">
+		<div id="tri18" class="value"></div>
+		<div id="tri18hz" class="value"></div>
+		<div id="tri18s" class="value"></div>
+	</div>	
+
+	<!-- 1/16 -->
+	<br>
+	<div class="header">
+		<div id="116" class="deselected selected" onclick="menuClicked(41)">1/16</div>
+		<div id="116dot" class="deselected" onclick="menuClicked(42)">1/16 dot</div>
+		<div id="116tri" class="deselected" onclick="menuClicked(43)">1/16 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole116val" class="values">
+			<div id="whole116" class="value"></div>
+			<div id="whole116hz" class="value"></div>
+			<div id="whole116s" class="value"></div>
+	</div>
+	<div id="dot116val" class="values hidden">
+		<div id="dot116" class="value"></div>
+		<div id="dot116hz" class="value"></div>
+		<div id="dot116s" class="value"></div>
+	</div>
+	<div id="tri116val" class="values hidden">
+		<div id="tri116" class="value"></div>
+		<div id="tri116hz" class="value"></div>
+		<div id="tri116s" class="value"></div>
+	</div>	
+
+	<!-- 1/32 -->
+	<br>
+	<div class="header">
+		<div id="132" class="deselected selected" onclick="menuClicked(51)">1/32</div>
+		<div id="132dot" class="deselected" onclick="menuClicked(52)">1/32 dot</div>
+		<div id="132tri" class="deselected" onclick="menuClicked(53)">1/32 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole132val" class="values">
+			<div id="whole132" class="value"></div>
+			<div id="whole132hz" class="value"></div>
+			<div id="whole132s" class="value"></div>
+	</div>
+	<div id="dot132val" class="values hidden">
+		<div id="dot132" class="value"></div>
+		<div id="dot132hz" class="value"></div>
+		<div id="dot132s" class="value"></div>
+	</div>
+	<div id="tri132val" class="values hidden">
+		<div id="tri132" class="value"></div>
+		<div id="tri132hz" class="value"></div>
+		<div id="tri132s" class="value"></div>
+	</div>	
+
+	<!-- 1/64 -->
+	<br>
+	<div class="header">
+		<div id="164" class="deselected selected" onclick="menuClicked(61)">1/64</div>
+		<div id="164dot" class="deselected" onclick="menuClicked(62)">1/64 dot</div>
+		<div id="164tri" class="deselected" onclick="menuClicked(63)">1/64 tri</div>
+	</div>
+	<div class="header">
+		<div class="selected">ms</div>
+		<div class="selected">Hz</div>
+		<div class="selected">samples</div>
+	</div>
+
+	<div id="whole164val" class="values">
+			<div id="whole164" class="value"></div>
+			<div id="whole164hz" class="value"></div>
+			<div id="whole164s" class="value"></div>
+	</div>
+	<div id="dot164val" class="values hidden">
+		<div id="dot164" class="value"></div>
+		<div id="dot164hz" class="value"></div>
+		<div id="dot164s" class="value"></div>
+	</div>
+	<div id="tri164val" class="values hidden">
+		<div id="tri164" class="value"></div>
+		<div id="tri164hz" class="value"></div>
+		<div id="tri164s" class="value"></div>
+	</div>	
+	
+	<!-- Note -->
+	<br>
+	<div class="header">
+		<div class="selected1">Note</div>
+		<div class="selected1">Frequency</div>
+		<div class="selected1">Cycle (samples)</div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note0" class="value"></div>
+		<div id="freq0" class="value"></div>
+		<div id="cycle0" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note1" class="value"></div>
+		<div id="freq1" class="value"></div>
+		<div id="cycle1" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note2" class="value"></div>
+		<div id="freq2" class="value"></div>
+		<div id="cycle2" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note3" class="value"></div>
+		<div id="freq3" class="value"></div>
+		<div id="cycle3" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note4" class="value"></div>
+		<div id="freq4" class="value"></div>
+		<div id="cycle4" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note5" class="value"></div>
+		<div id="freq5" class="value"></div>
+		<div id="cycle5" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note6" class="value"></div>
+		<div id="freq6" class="value"></div>
+		<div id="cycle6" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note7" class="value"></div>
+		<div id="freq7" class="value"></div>
+		<div id="cycle7" class="value"></div>
+	</div>
+	<div class="values" style="border-color: #cb1d6c;">
+		<div id="note8" class="value"></div>
+		<div id="freq8" class="value"></div>
+		<div id="cycle8" class="value"></div>
 	</div>
 	<br>
 
-	
 
-	<button id="generate" onclick="generate()">GENERATE</button>
-
-	<div id="bpm">BPM</div>
 	<script>
 
-		// Use an object with property names as strings and values as arrays
+function menuClicked(x) {
+   // 1/2
+	if (x==11) {
+    document.getElementById('12').classList.add('selected');
+	document.getElementById('12dot').classList.remove('selected');
+	document.getElementById('12tri').classList.remove('selected');
+	document.getElementById('whole12val').classList.remove('hidden');
+	document.getElementById('dot12val').classList.add('hidden');
+	document.getElementById('tri12val').classList.add('hidden');
+  } 
+  	if (x==12) {
+    document.getElementById('12').classList.remove('selected');
+	document.getElementById('12dot').classList.add('selected');
+	document.getElementById('12tri').classList.remove('selected');
+	document.getElementById('whole12val').classList.add('hidden');
+	document.getElementById('dot12val').classList.remove('hidden');
+	document.getElementById('tri12val').classList.add('hidden');
+  } 
+  if (x==13) {
+    document.getElementById('12').classList.remove('selected');
+	document.getElementById('12dot').classList.remove('selected');
+	document.getElementById('12tri').classList.add('selected');
+	document.getElementById('whole12val').classList.add('hidden');
+	document.getElementById('dot12val').classList.add('hidden');
+	document.getElementById('tri12val').classList.remove('hidden');
+  }
+  // 1/4
+  if (x==21) {
+    document.getElementById('14').classList.add('selected');
+	document.getElementById('14dot').classList.remove('selected');
+	document.getElementById('14tri').classList.remove('selected');
+	document.getElementById('whole14val').classList.remove('hidden');
+	document.getElementById('dot14val').classList.add('hidden');
+	document.getElementById('tri14val').classList.add('hidden');
+  } 
+  	if (x==22) {
+    document.getElementById('14').classList.remove('selected');
+	document.getElementById('14dot').classList.add('selected');
+	document.getElementById('14tri').classList.remove('selected');
+	document.getElementById('whole14val').classList.add('hidden');
+	document.getElementById('dot14val').classList.remove('hidden');
+	document.getElementById('tri14val').classList.add('hidden');
+  } 
+  if (x==23) {
+    document.getElementById('14').classList.remove('selected');
+	document.getElementById('14dot').classList.remove('selected');
+	document.getElementById('14tri').classList.add('selected');
+	document.getElementById('whole14val').classList.add('hidden');
+	document.getElementById('dot14val').classList.add('hidden');
+	document.getElementById('tri14val').classList.remove('hidden');
+  }
+
+  // 1/8
+
+  if (x==31) {
+    document.getElementById('18').classList.add('selected');
+	document.getElementById('18dot').classList.remove('selected');
+	document.getElementById('18tri').classList.remove('selected');
+	document.getElementById('whole18val').classList.remove('hidden');
+	document.getElementById('dot18val').classList.add('hidden');
+	document.getElementById('tri18val').classList.add('hidden');
+  } 
+  	if (x==32) {
+    document.getElementById('18').classList.remove('selected');
+	document.getElementById('18dot').classList.add('selected');
+	document.getElementById('18tri').classList.remove('selected');
+	document.getElementById('whole18val').classList.add('hidden');
+	document.getElementById('dot18val').classList.remove('hidden');
+	document.getElementById('tri18val').classList.add('hidden');
+  } 
+  if (x==33) {
+    document.getElementById('18').classList.remove('selected');
+	document.getElementById('18dot').classList.remove('selected');
+	document.getElementById('18tri').classList.add('selected');
+	document.getElementById('whole18val').classList.add('hidden');
+	document.getElementById('dot18val').classList.add('hidden');
+	document.getElementById('tri18val').classList.remove('hidden');
+  }
+
+  // 1/16
+
+  if (x==41) {
+    document.getElementById('116').classList.add('selected');
+	document.getElementById('116dot').classList.remove('selected');
+	document.getElementById('116tri').classList.remove('selected');
+	document.getElementById('whole116val').classList.remove('hidden');
+	document.getElementById('dot116val').classList.add('hidden');
+	document.getElementById('tri116val').classList.add('hidden');
+  } 
+  	if (x==42) {
+    document.getElementById('116').classList.remove('selected');
+	document.getElementById('116dot').classList.add('selected');
+	document.getElementById('116tri').classList.remove('selected');
+	document.getElementById('whole116val').classList.add('hidden');
+	document.getElementById('dot116val').classList.remove('hidden');
+	document.getElementById('tri116val').classList.add('hidden');
+  } 
+  if (x==43) {
+    document.getElementById('116').classList.remove('selected');
+	document.getElementById('116dot').classList.remove('selected');
+	document.getElementById('116tri').classList.add('selected');
+	document.getElementById('whole116val').classList.add('hidden');
+	document.getElementById('dot116val').classList.add('hidden');
+	document.getElementById('tri116val').classList.remove('hidden');
+  }
+
+  // 1/32
+  if (x==51) {
+    document.getElementById('132').classList.add('selected');
+	document.getElementById('132dot').classList.remove('selected');
+	document.getElementById('132tri').classList.remove('selected');
+	document.getElementById('whole132val').classList.remove('hidden');
+	document.getElementById('dot132val').classList.add('hidden');
+	document.getElementById('tri132val').classList.add('hidden');
+  } 
+  	if (x==52) {
+    document.getElementById('132').classList.remove('selected');
+	document.getElementById('132dot').classList.add('selected');
+	document.getElementById('132tri').classList.remove('selected');
+	document.getElementById('whole132val').classList.add('hidden');
+	document.getElementById('dot132val').classList.remove('hidden');
+	document.getElementById('tri132val').classList.add('hidden');
+  } 
+  if (x==53) {
+    document.getElementById('132').classList.remove('selected');
+	document.getElementById('132dot').classList.remove('selected');
+	document.getElementById('132tri').classList.add('selected');
+	document.getElementById('whole132val').classList.add('hidden');
+	document.getElementById('dot132val').classList.add('hidden');
+	document.getElementById('tri132val').classList.remove('hidden');
+  }
+
+  // 1/64
+
+if (x==61) {
+    document.getElementById('164').classList.add('selected');
+	document.getElementById('164dot').classList.remove('selected');
+	document.getElementById('164tri').classList.remove('selected');
+	document.getElementById('whole164val').classList.remove('hidden');
+	document.getElementById('dot164val').classList.add('hidden');
+	document.getElementById('tri164val').classList.add('hidden');
+  } 
+  	if (x==62) {
+    document.getElementById('164').classList.remove('selected');
+	document.getElementById('164dot').classList.add('selected');
+	document.getElementById('164tri').classList.remove('selected');
+	document.getElementById('whole164val').classList.add('hidden');
+	document.getElementById('dot164val').classList.remove('hidden');
+	document.getElementById('tri164val').classList.add('hidden');
+  } 
+  if (x==63) {
+    document.getElementById('164').classList.remove('selected');
+	document.getElementById('164dot').classList.remove('selected');
+	document.getElementById('164tri').classList.add('selected');
+	document.getElementById('whole164val').classList.add('hidden');
+	document.getElementById('dot164val').classList.add('hidden');
+	document.getElementById('tri164val').classList.remove('hidden');
+  }
+}
 		const notes = {
 			"C": [16.35, 32.7, 65.41, 130.8, 261.6, 523.3, 1047, 2093, 4186],
-			"Csharp": [17.32, 34.65, 69.3, 138.6, 277.2, 554.4, 1109, 2217, 4435],
+			"C#": [17.32, 34.65, 69.3, 138.6, 277.2, 554.4, 1109, 2217, 4435],
 			"D": [18.35, 36.71, 73.42, 146.8, 293.7, 587.3, 1175, 2349, 4699],
-			"Dsharp": [19.45, 38.89, 77.78, 155.6, 311.1, 622.3, 1245, 2489, 4978],
+			"D#": [19.45, 38.89, 77.78, 155.6, 311.1, 622.3, 1245, 2489, 4978],
 			"E": [20.6, 41.2, 82.41, 164.8, 329.6, 659.3, 1319, 2637, 5274],
 			"F": [21.83, 43.65, 87.31, 174.6, 349.2, 698.5, 1397, 2794, 5588],
-			"Fsharp": [23.12, 46.25, 92.50, 185, 370, 740, 1480, 2960, 5920],
+			"F#": [23.12, 46.25, 92.50, 185, 370, 740, 1480, 2960, 5920],
 			"G": [24.50, 49, 98, 196, 392, 784, 1568, 3136, 6272],
-			"Gsharp": [25.96, 51.91, 103.8, 207.7, 415.3, 830.6, 1661, 3322, 6645],
+			"G#": [25.96, 51.91, 103.8, 207.7, 415.3, 830.6, 1661, 3322, 6645],
 			"A": [27.5, 55, 110, 220, 440, 880, 1760, 3520, 7040],
-			"Asharp": [29.14, 58.27, 116.5, 233.1, 466.2, 932.3, 1865, 3729, 7459],
+			"A#": [29.14, 58.27, 116.5, 233.1, 466.2, 932.3, 1865, 3729, 7459],
 			"B": [30.87, 61.74, 123.5, 246.9, 493.9, 987.8, 1976, 3951, 7902]
 		};
 
@@ -83,96 +467,113 @@
             } 
 
 
-			console.log('BPM:', bpm);
-			console.log('SR:', sr);
+			// MS
+			document.getElementById("whole12").innerHTML = Math.round(((60000 / bpm) * 2 * 1000) / 1000)
+			document.getElementById("whole14").innerHTML = Math.round(((60000 / bpm) * 1000) / 1000)
+			document.getElementById("whole18").innerHTML = Math.round(((60000 / bpm) / 2 * 1000) / 1000)
+			document.getElementById("whole116").innerHTML = Math.round(((60000 / bpm) / 4 * 1000) / 1000)
+			document.getElementById("whole132").innerHTML = Math.round(((60000 / bpm) / 8 * 1000) / 1000)
+			document.getElementById("whole164").innerHTML = Math.round(((60000 / bpm) / 16 * 1000) / 1000)
+				// Dot
+			document.getElementById("dot12").innerHTML = Math.round(((60000 / bpm) * 3 * 1000) / 1000)
+			document.getElementById("dot14").innerHTML = Math.round((((60000 / bpm) / 2) * 3 * 1000) / 1000)
+			document.getElementById("dot18").innerHTML = Math.round((((60000 / bpm) / 4) * 3 * 1000) / 1000)
+			document.getElementById("dot116").innerHTML = Math.round(((60000 / bpm) / 4 * 1.5 * 1000) / 1000)
+			document.getElementById("dot132").innerHTML = Math.round(((60000 / bpm) / 8 * 1.5 * 1000) / 1000)
+			document.getElementById("dot164").innerHTML = Math.round(((60000 / bpm) / 16 * 1.5 * 1000) / 1000)
+				// Tri
+			document.getElementById("tri12").innerHTML = Math.round(((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000)
+			document.getElementById("tri14").innerHTML = Math.round((((60000 / bpm) * 2) / 3 * 1000) / 1000)
+			document.getElementById("tri18").innerHTML = Math.round(((60000 / bpm) / 3 * 1000) / 1000)
+			document.getElementById("tri116").innerHTML = Math.round(((60000 / bpm) / 6 * 1000) / 1000)
+			document.getElementById("tri132").innerHTML = Math.round(((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000)
+			document.getElementById("tri164").innerHTML = Math.round(((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000)
+			// Hz
+			document.getElementById("whole12hz").innerHTML = (Math.round(1000 / ((60000 / bpm) * 2) * 1000) / 1000)
+			document.getElementById("whole14hz").innerHTML = (Math.round(1000 / ((60000 / bpm)) * 1000) / 1000)
+			document.getElementById("whole18hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 2) * 1000) / 1000)
+			document.getElementById("whole116hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 4) * 1000) / 1000)
+			document.getElementById("whole132hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 8) * 1000) / 1000)
+			document.getElementById("whole164hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 16) * 1000) / 1000)
+				// Dot
+			document.getElementById("dot12hz").innerHTML = (Math.round(1000 / ((60000 / bpm) * 3) * 1000) / 1000)
+			document.getElementById("dot14hz").innerHTML = (Math.round(1000 / (((60000 / bpm) / 2) * 3) * 1000) / 1000)
+			document.getElementById("dot18hz").innerHTML = (Math.round(1000 / (((60000 / bpm) / 4) * 3) * 1000) / 1000)
+			document.getElementById("dot116hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 4 * 1.5) * 1000) / 1000)
+			document.getElementById("dot132hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 8 * 1.5) * 1000) / 1000)
+			document.getElementById("dot164hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 16 * 1.5) * 1000) / 1000)
+				// Tri
+			document.getElementById("tri12hz").innerHTML = (Math.round(1000 / ((60000 / bpm) * 2 * 2 / 3) * 1000) / 1000)
+			document.getElementById("tri14hz").innerHTML = (Math.round(1000 / (((60000 / bpm) * 2) / 3) * 1000) / 1000)
+			document.getElementById("tri18hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 3) * 1000) / 1000)
+			document.getElementById("tri116hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 6) * 1000) / 1000)
+			document.getElementById("tri132hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 8 * 2 / 3) * 1000) / 1000)
+			document.getElementById("tri164hz").innerHTML = (Math.round(1000 / ((60000 / bpm) / 16 * 2 / 3) * 1000) / 1000)
+			// Samples
+			document.getElementById("whole12s").innerHTML = Math.round((((60000 / bpm) * 2 * 1000) / 1000) * sr)
+			document.getElementById("whole14s").innerHTML = Math.round((((60000 / bpm) * 1000) / 1000) * sr)
+			document.getElementById("whole18s").innerHTML = Math.round((((60000 / bpm) / 2 * 1000) / 1000) * sr)
+			document.getElementById("whole116s").innerHTML = Math.round((((60000 / bpm) / 4 * 1000) / 1000) * sr)
+			document.getElementById("whole132s").innerHTML = Math.round((((60000 / bpm) / 8 * 1000) / 1000) * sr)
+			document.getElementById("whole164s").innerHTML = Math.round((((60000 / bpm) / 16 * 1000) / 1000) * sr)
+				// Dot
+			document.getElementById("dot12s").innerHTML = Math.round((((60000 / bpm) * 3 * 1000) / 1000) * sr)
+			document.getElementById("dot14s").innerHTML = Math.round(((((60000 / bpm) / 2) * 3 * 1000) / 1000) * sr)
+			document.getElementById("dot18s").innerHTML = Math.round(((((60000 / bpm) / 4) * 3 * 1000) / 1000) * sr)
+			document.getElementById("dot116s").innerHTML = Math.round((((60000 / bpm) / 4 * 1.5 * 1000) / 1000) * sr)
+			document.getElementById("dot132s").innerHTML = Math.round((((60000 / bpm) / 8 * 1.5 * 1000) / 1000) * sr)
+			document.getElementById("dot164s").innerHTML = Math.round((((60000 / bpm) / 16 * 1.5 * 1000) / 1000) * sr)
+				// Tri
+			document.getElementById("tri12s").innerHTML = Math.round((((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000) * sr)
+			document.getElementById("tri14s").innerHTML = Math.round(((((60000 / bpm) * 2) / 3 * 1000) / 1000) * sr)
+			document.getElementById("tri18s").innerHTML = Math.round((((60000 / bpm) / 3 * 1000) / 1000) * sr)
+			document.getElementById("tri116s").innerHTML = Math.round((((60000 / bpm) / 6 * 1000) / 1000) * sr)
+			document.getElementById("tri132s").innerHTML = Math.round((((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000) * sr)
+			document.getElementById("tri164s").innerHTML = Math.round((((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000) * sr)
 
-			for (var i = 0; i < 9; i++) {
-				console.log(notes[note][i]);
-			}
+			// Note
+			document.getElementById("note0").innerHTML = note+"0"
+			document.getElementById("freq0").innerHTML = notes[note][0]
+			document.getElementById("cycle0").innerHTML = Math.round((parseFloat((1 / notes[note][0] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML = "One bar contains 4 beats<br>"
+			document.getElementById("note1").innerHTML = note+"1"
+			document.getElementById("freq1").innerHTML = notes[note][1]
+			document.getElementById("cycle1").innerHTML = Math.round((parseFloat((1 / notes[note][1] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Milliseconds<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 2 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((60000 / bpm) * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((60000 / bpm) / 2 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 4 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 1000) / 1000) + " ms<br>"
+			document.getElementById("note2").innerHTML = note+"2"
+			document.getElementById("freq2").innerHTML = notes[note][2]
+			document.getElementById("cycle2").innerHTML = Math.round((parseFloat((1 / notes[note][2] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) / 2) * 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 4) * 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 4 * 1.5 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 1.5 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 1.5 * 1000) / 1000) + " ms<br>"
+			document.getElementById("note3").innerHTML = note+"3"
+			document.getElementById("freq3").innerHTML = notes[note][3]
+			document.getElementById("cycle3").innerHTML = Math.round((parseFloat((1 / notes[note][3] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round(((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) * 2) / 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((60000 / bpm) / 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round(((60000 / bpm) / 6 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round(((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000) + " ms<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round(((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000) + " ms<br>"
+			document.getElementById("note4").innerHTML = note+"4"
+			document.getElementById("freq4").innerHTML = notes[note][4]
+			document.getElementById("cycle4").innerHTML = Math.round((parseFloat((1 / notes[note][4] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Samples<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 2 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round((((60000 / bpm) * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 2 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 4 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("note5").innerHTML = note+"5"
+			document.getElementById("freq5").innerHTML = notes[note][5]
+			document.getElementById("cycle5").innerHTML = Math.round((parseFloat((1 / notes[note][5] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((((60000 / bpm) / 2) * 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round(((((60000 / bpm) / 4) * 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 4 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 1.5 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("note6").innerHTML = note+"6"
+			document.getElementById("freq6").innerHTML = notes[note][6]
+			document.getElementById("cycle6").innerHTML = Math.round((parseFloat((1 / notes[note][6] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + Math.round((((60000 / bpm) * 2 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + Math.round(((((60000 / bpm) * 2) / 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + Math.round((((60000 / bpm) / 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + Math.round((((60000 / bpm) / 6 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + Math.round((((60000 / bpm) / 8 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + Math.round((((60000 / bpm) / 16 * 2 / 3 * 1000) / 1000) * sr) + " samples<br>"
+			document.getElementById("note7").innerHTML = note+"7"
+			document.getElementById("freq7").innerHTML = notes[note][7]
+			document.getElementById("cycle7").innerHTML = Math.round((parseFloat((1 / notes[note][7] * 1000).toFixed(3))) * sr)
 
-			document.getElementById("bpm").innerHTML += "<br>Herz<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 2) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / ((60000 / bpm)) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / ((60000 / bpm) / 2) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 4) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16) * 1000) / 1000) + " Hz<br>"
-
-			document.getElementById("bpm").innerHTML += "<br>Dotted<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / (((60000 / bpm) / 2) * 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / (((60000 / bpm) / 4) * 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 4 * 1.5) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8 * 1.5) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16 * 1.5) * 1000) / 1000) + " Hz<br>"
-
-			document.getElementById("bpm").innerHTML += "<br>Tripplet<br>"
-			document.getElementById("bpm").innerHTML += "1/2: " + (Math.round(1000 / ((60000 / bpm) * 2 * 2 / 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/4: " + (Math.round(1000 / (((60000 / bpm) * 2) / 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/8: " + (Math.round(1000 / ((60000 / bpm) / 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/16: " + (Math.round(1000 / ((60000 / bpm) / 6) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/32: " + (Math.round(1000 / ((60000 / bpm) / 8 * 2 / 3) * 1000) / 1000) + " Hz<br>"
-			document.getElementById("bpm").innerHTML += "1/64: " + (Math.round(1000 / ((60000 / bpm) / 16 * 2 / 3) * 1000) / 1000) + " Hz<br>"
+			document.getElementById("note8").innerHTML = note+"8"
+			document.getElementById("freq8").innerHTML = notes[note][8]
+			document.getElementById("cycle8").innerHTML = Math.round((parseFloat((1 / notes[note][8] * 1000).toFixed(3))) * sr)
 
 		}
 
 
 
 
-		//var ms = parseFloat((1 / A[4] * 1000).toFixed(3)); 
 
-		//console.log("Single cycle note in ms: " + ms)
-		//console.log("Single cycle note in samples: " + Math.round(ms * sr))
 
 
 
