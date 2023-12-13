@@ -19,6 +19,8 @@ def read_stereo_wav(file_path):
         num_frames = wav_file.getnframes()
         frames = wav_file.readframes(num_frames)
         samples = np.frombuffer(frames, dtype=np.int16)
+        global sample_rate
+        sample_rate = wav_file.getframerate()
 
         left_channel = samples[::2] / 32768.0
         right_channel = samples[1::2] / 32768.0
@@ -48,18 +50,39 @@ fadeout_linear = np.linspace(0.0, 1.0, fadeout_length_in_samples).tolist()
 # Example usage
 bpm = input("Insert BPM: ")
 bpm = int(bpm)
-length = input("Length of output file - (1) 1/8 or (2) 1/16: ")
-if length == "1":
-    length = 2
-else:
-    length = 4
-
-final_length_of_sample = round(((((60000 / bpm) / length * 1000) / 1000) * 44.1))
-print("Total length of output file in samples will be:", final_length_of_sample)
+root_note = input("Insert root note (c, c#, d, d#...): ")
+if root_note == "c":
+    root_note = 48
+elif root_note == "c#":
+    root_note = 49
+elif root_note == "d":
+    root_note = 50
+elif root_note == "d#":
+    root_note = 51
+elif root_note == "e":
+    root_note = 52
+elif root_note == "f":
+    root_note = 53
+elif root_note == "f#":
+    root_note = 54
+elif root_note == "g":
+    root_note = 55
+elif root_note == "g#":
+    root_note = 56
+elif root_note == "a":
+    root_note = 57
+elif root_note == "a#":
+    root_note = 58
+else: 
+    root_note = 59
 
 input_file_path = input("Wav file name to edit: ")
-output_file = input_file_path[: -4] + "_edited" + input_file_path[-4:]
+output_file = input_file_path[: -4] + "_" + str(bpm) + "bpm_1_8" + input_file_path[-4:]
+output_file_short = input_file_path[: -4] + "_" + str(bpm) + "bpm_1_16" + input_file_path[-4:]
 left_samples, right_samples = read_stereo_wav(input_file_path)
+
+final_length_of_sample_1_8 = round(((((60000 / bpm) / 2 * 1000) / 1000) * (sample_rate / 1000)))
+final_length_of_sample_1_16 = round(((((60000 / bpm) / 4 * 1000) / 1000) * (sample_rate / 1000)))
 
 first_nonzero_index_left = find_first_nonzero_index(left_samples)
 first_nonzero_index_right = find_first_nonzero_index(right_samples)
@@ -72,9 +95,6 @@ min_index = min(first_nonzero_index_left, first_nonzero_index_right) -1
 # Remove all silence from beginning to first non zero value, leaving one zero value at beginning to avoid clicks
 left_samples = left_samples[min_index:]
 right_samples = right_samples[min_index:]
-# Shorten the sample to bpm and choosen 1/8 or 1/16 beat
-left_samples = left_samples[:final_length_of_sample]
-right_samples = right_samples[:final_length_of_sample]
 # Normalize the volume
 def normalize_values(numbers, max_abs_value):
     if max_abs_value == 0:
@@ -95,29 +115,25 @@ combined_numbers = left_samples + right_samples
 max_abs_value = max(map(abs, combined_numbers))
 left_samples = normalize_values(left_samples, max_abs_value)
 right_samples = normalize_values(right_samples, max_abs_value)
+
+# Shorten the sample to bpm and choosen 1/8 or 1/16 beat
+left_samples_long = left_samples[:final_length_of_sample_1_8]
+right_samples_long = right_samples[:final_length_of_sample_1_8]
+left_samples_short = left_samples[:final_length_of_sample_1_16]
+right_samples_short = right_samples[:final_length_of_sample_1_16]
+
 # Fadeout to zero last 660 samples of a file
 # Linearly decrease the last 10 values from 1 to 0
 for i in range(660):
-    left_samples[-(i + 1)] = left_samples[-(i + 1)] * fadeout_linear[i]
-    right_samples[-(i + 1)] = right_samples[-(i + 1)] * fadeout_linear[i]
-
-print ("Sample is normalized!")
-print("Values of first 2 samples in left channel", left_samples[:2])
-print("Values of first 2 samples in right channel", right_samples[:2])
-print("Value of last sample in left channel", left_samples[-1])
-print("Value of last sample in right channel", right_samples[-1])
-print("Length of left channel in samples", len(left_samples))
-print("Length of right channel in samples", len(right_samples))
-
+    left_samples_long[-(i + 1)] = left_samples_long[-(i + 1)] * fadeout_linear[i]
+    right_samples_long[-(i + 1)] = right_samples_long[-(i + 1)] * fadeout_linear[i]
+    left_samples_short[-(i + 1)] = left_samples_short[-(i + 1)] * fadeout_linear[i]
+    right_samples_short[-(i + 1)] = right_samples_short[-(i + 1)] * fadeout_linear[i]
 
 def create_stereo_wav(left_channel, right_channel, output_file):
-    # Check if the lengths of the two channels match
-    if len(left_channel) != len(right_channel):
-        raise ValueError("The lengths of the left and right channels must be the same.")
-
     # Set the parameters for the WAV file
     sample_width = 2  # 16-bit audio
-    frame_rate = 44100
+    frame_rate = sample_rate
     num_channels = 2  # Stereo
 
     # Create a new wave file
@@ -136,6 +152,14 @@ def create_stereo_wav(left_channel, right_channel, output_file):
         # Write the interleaved samples to the WAV file
         wav_file.writeframes(b''.join(interleaved_samples))
 
-create_stereo_wav(left_samples, right_samples, output_file)
+
+
+create_stereo_wav(left_samples_long, right_samples_long, output_file)
+create_stereo_wav(left_samples_short, right_samples_short, output_file_short)
+sfz_filename = input_file_path[: -4] + "_" + str(bpm) + "bpm.sfz"
+sfz_file = open(sfz_filename, "w")
+sfz_file.write("<region> pitch_keycenter=" + str(root_note) + " lovel=0 hivel=127 lokey=" + str(root_note) + "  hikey=" + str(root_note) + "  sample=" + output_file + "\n<region> pitch_keycenter=" + str(root_note + 12) + "  lovel=0 hivel=127 lokey=" + str(root_note + 12) + "  hikey=" + str(root_note + 12) + "  sample=" + output_file_short)
+sfz_file.close()
 print ("Edited file created:", output_file)
+print ("Edited file created:", output_file_short)
 input("Press ENTER to exit")
