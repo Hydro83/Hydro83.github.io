@@ -1,7 +1,6 @@
 import wave
 import numpy as np
 import struct
-import matplotlib.pyplot as plt
 import os
 
 # Populate notes array with notes that are played in wav file until ENTER is pressed
