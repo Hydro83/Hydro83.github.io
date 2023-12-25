@@ -114,6 +114,21 @@ print("Length of left channel in samples", len(left_samples))
 print("Length of right channel in samples", len(right_samples))
 
 
+def find_zero_crossings(audio_samples):
+    zero_crossings = []
+
+    for i in range(1, len(audio_samples)):
+        if (audio_samples[i - 1] >= 0 and audio_samples[i] < 0) or \
+           (audio_samples[i - 1] < 0 and audio_samples[i] >= 0):
+            # Sign change detected, indicating a zero crossing
+            zero_crossings.append(i)
+
+    return zero_crossings
+
+# Example usage:
+#crossings = find_zero_crossings(left_samples)
+#print("Zero crossings at indices:", crossings)
+
 def create_stereo_wav(left_channel, right_channel, output_file):
     # Check if the lengths of the two channels match
     if len(left_channel) != len(right_channel):
